@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - HealthCompare</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <meta name="description" content="Découvrez qui nous sommes, notre mission et nos valeurs chez HealthCompare - votre guide pour des choix de santé éclairés">
+    <style>
+        /* About page specific styles */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../images/hero-pattern.svg');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-mission {
+            padding: 80px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+        
+        .about-mission p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+        
+        .mission-highlight {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--primary-color);
+            max-width: 900px;
+            margin: 40px auto;
+            position: relative;
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+            border-left: 4px solid var(--primary-color);
+            border-right: 4px solid var(--primary-color);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 30px;
+        }
+        
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .about-team {
+            padding: 80px 0;
+            background-color: var(--light-background);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .team-photo {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .team-info h3 {
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+        
+        .team-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .team-bio {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--light-background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .about-process {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .about-timeline {
+            padding: 80px 0;
+            background: var(--light-background);
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 40px);
+            padding: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            left: calc(50% + 40px);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -50px;
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .about-stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .about-affiliate {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .about-affiliate ul {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        .about-affiliate li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .about-affiliate li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .about-testimonials {
+            padding: 80px 0;
+            background: var(--light-background);
+            text-align: center;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: left;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary-light);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 0.8;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .about-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+        
+        .about-cta h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .about-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Input field enhancements */
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .input-wrapper:focus-within {
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .input-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .input-wrapper:focus-within .input-icon {
+            opacity: 1;
+        }
+        
+        .newsletter-form input[type="text"],
+        .newsletter-form input[type="email"] {
+            flex: 1;
+            padding: 15px 15px 15px 0;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"]:checked {
+            background-color: white;
+            border-color: white;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"]:checked::before {
+            content: '✓';
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"]:focus {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+        
+        .checkbox-wrapper label {
+            cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .subscribe-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-icon {
+            transition: all 0.4s ease;
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+        
+        .subscribe-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #f8f9ff;
+        }
+        
+        .subscribe-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subscribe-btn:hover .btn-icon {
+            transform: translateX(5px);
+        }
+        
+        .subscribe-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform 0.5s, opacity 0.8s;
+        }
+        
+        .subscribe-btn:active::after {
+            transform: scale(0, 0);
+            opacity: 0.3;
+            transition: 0s;
+        }
+        
+        .subscribe-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0));
+            transform: translateX(-100%);
+        }
+        
+        .subscribe-btn:hover::before {
+            animation: btn-shine 1.5s ease infinite;
+        }
+        
+        @keyframes btn-shine {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .values-grid,
+            .team-grid,
+            .process-steps,
+            .stats-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                left: 80px !important;
+            }
+            
+            .timeline-content::before {
+                left: -40px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 70px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-highlight {
+                font-size: 1.2rem;
+            }
+            
+            .values-grid,
+            .team-grid,
+            .process-steps,
+            .stats-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>HealthCompare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Accueil</a></li>
+                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
+                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../services/index.html">Services</a></li>
+                    <li><a href="../about/index.html">À propos</a></li>
+                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" title="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>À propos de HealthCompare</h1>
+            <p>Votre partenaire de confiance pour des choix de santé éclairés depuis 2020</p>
+        </div>
+    </section>
+
+    <section class="about-mission">
+        <div class="container">
+            <h2>Notre mission</h2>
+            <p>Chez HealthCompare, notre mission est de simplifier les décisions de santé en fournissant des informations claires, précises et impartiales sur les produits et services médicaux, pharmaceutiques et dentaires.</p>
+            <div class="mission-highlight">
+                "Nous croyons que chacun mérite d'avoir accès à des informations de qualité pour prendre des décisions éclairées concernant sa santé."
+            </div>
+            <p>C'est pourquoi nous nous efforçons de créer des comparatifs détaillés et des articles informatifs qui vous aident à naviguer dans le monde complexe des soins de santé. Notre engagement est de rendre l'information de santé accessible à tous, indépendamment de vos connaissances médicales préalables.</p>
+        </div>
+    </section>
+
+    <section class="about-values">
+        <div class="container">
+            <h2>Nos valeurs</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🔍</div>
+                    <h3>Transparence</h3>
+                    <p>Nous sommes totalement transparents sur notre modèle économique basé sur l'affiliation. Nous divulguons clairement nos relations commerciales et expliquons comment nous gagnons de l'argent.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚖️</div>
+                    <h3>Impartialité</h3>
+                    <p>Nos évaluations et recommandations sont basées sur des recherches approfondies et des critères objectifs, jamais sur des commissions potentielles.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✓</div>
+                    <h3>Précision</h3>
+                    <p>Nous nous engageons à fournir des informations précises et à jour. Nous révisons régulièrement notre contenu pour garantir son exactitude.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔓</div>
+                    <h3>Accessibilité</h3>
+                    <p>Nous présentons des informations complexes de manière claire et accessible, afin que chacun puisse les comprendre et les utiliser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-team">
+        <div class="container">
+            <h2>Notre équipe</h2>
+            <p>HealthCompare est composé d'une équipe passionnée de professionnels de la santé, de rédacteurs spécialisés et d'experts en technologie. Ensemble, nous travaillons pour créer la ressource la plus fiable et la plus utile pour les consommateurs à la recherche d'informations sur les produits et services de santé.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="../../images/authors/team-1.jpg" alt="Dr. Sophie Laurent" class="team-photo">
+                    <div class="team-info">
+                        <h3>Dr. Sophie Laurent</h3>
+                        <span class="team-title">Directrice Médicale</span>
+                        <p class="team-bio">Médecin généraliste avec plus de 15 ans d'expérience, Sophie supervise tous nos contenus médicaux pour garantir leur exactitude et leur pertinence.</p>
+                        <div class="team-social">
+                            <a href="#" title="LinkedIn"><i>in</i></a>
+                            <a href="#" title="Twitter"><i>t</i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="../../images/authors/team-2.jpg" alt="Marc Dubois" class="team-photo">
+                    <div class="team-info">
+                        <h3>Marc Dubois</h3>
+                        <span class="team-title">Directeur Technique</span>
+                        <p class="team-bio">Ingénieur en informatique spécialisé dans la santé numérique, Marc dirige notre stratégie technologique et assure la qualité de nos outils de comparaison.</p>
+                        <div class="team-social">
+                            <a href="#" title="LinkedIn"><i>in</i></a>
+                            <a href="#" title="GitHub"><i>G</i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="../../images/authors/team-3.jpg" alt="Amélie Moreau" class="team-photo">
+                    <div class="team-info">
+                        <h3>Amélie Moreau</h3>
+                        <span class="team-title">Rédactrice en Chef</span>
+                        <p class="team-bio">Journaliste spécialisée en santé avec plus de 10 ans d'expérience dans la vulgarisation scientifique et médicale pour le grand public.</p>
+                        <div class="team-social">
+                            <a href="#" title="LinkedIn"><i>in</i></a>
+                            <a href="#" title="Twitter"><i>t</i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="../../images/authors/team-4.jpg" alt="Thomas Lefèvre" class="team-photo">
+                    <div class="team-info">
+                        <h3>Thomas Lefèvre</h3>
+                        <span class="team-title">Expert en Données</span>
+                        <p class="team-bio">Analyste de données avec une spécialisation en statistiques de santé, Thomas est responsable de l'analyse des produits et services pour nos comparatifs.</p>
+                        <div class="team-social">
+                            <a href="#" title="LinkedIn"><i>in</i></a>
+                            <a href="#" title="Twitter"><i>t</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="mt-5">Notre équipe effectue des recherches approfondies, teste des produits et services, et consulte des experts du secteur pour vous fournir les informations les plus précises et les plus pertinentes.</p>
+        </div>
+    </section>
+
+    <section class="about-process">
+        <div class="container">
+            <h2>Notre processus</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Recherche</h3>
+                    <p>Nous effectuons des recherches approfondies sur chaque produit et service, en examinant les spécifications, les avis d'utilisateurs et les études indépendantes.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Évaluation</h3>
+                    <p>Nous évaluons les produits et services selon des critères rigoureux, notamment la qualité, l'efficacité, la facilité d'utilisation et le rapport qualité-prix.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Comparaison</h3>
+                    <p>Nous comparons les différentes options disponibles sur le marché pour vous aider à identifier celle qui répond le mieux à vos besoins spécifiques.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Mise à jour</h3>
+                    <p>Nous révisons régulièrement notre contenu pour tenir compte des nouveaux produits, des changements de prix et des évolutions du marché.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-timeline">
+        <div class="container">
+            <h2>Notre histoire</h2>
+            <p>Depuis notre création en 2020, nous nous sommes développés pour devenir une référence fiable dans le domaine de la comparaison des produits et services de santé.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Mars 2020</span>
+                        <h3>Création de HealthCompare</h3>
+                        <p>HealthCompare est lancé avec une vision claire : simplifier l'accès à l'information sur les produits et services de santé.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Septembre 2020</span>
+                        <h3>Premier comparatif</h3>
+                        <p>Lancement de notre premier comparatif approfondi sur les services de télémédecine, qui est rapidement devenu une ressource de référence.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Janvier 2021</span>
+                        <h3>Expansion de l'équipe</h3>
+                        <p>Notre équipe s'agrandit avec l'arrivée d'experts médicaux et de spécialistes en données pour améliorer la qualité de nos comparatifs.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Juin 2022</span>
+                        <h3>Lancement du blog santé</h3>
+                        <p>Nous élargissons notre contenu avec un blog dédié aux sujets de santé, rédigé par des professionnels de la santé et des journalistes spécialisés.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Novembre 2023</span>
+                        <h3>1 million de visiteurs</h3>
+                        <p>HealthCompare atteint le cap du million de visiteurs mensuels, confirmant notre position d'acteur majeur dans le domaine.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3>Aujourd'hui</h3>
+                        <p>Nous continuons à développer notre plateforme avec de nouveaux comparatifs et des partenariats stratégiques pour vous offrir toujours plus de valeur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-stats">
+        <div class="container">
+            <h2>HealthCompare en chiffres</h2>
+            <p>Quelques chiffres qui illustrent notre impact dans le domaine de l'information santé</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1.5M+</div>
+                    <div class="stat-label">Visiteurs mensuels</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Comparatifs détaillés</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Experts collaborateurs</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Articles publiés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-affiliate">
+        <div class="container">
+            <h2>Notre modèle d'affiliation</h2>
+            <p>HealthCompare utilise un modèle de marketing d'affiliation pour financer notre site et notre travail. Cela signifie que nous pouvons recevoir une commission lorsque vous achetez un produit ou service via les liens sur notre site.</p>
+            <p>Cependant, nous tenons à souligner que :</p>
+            <ul>
+                <li>Nos recommandations sont toujours basées sur le mérite du produit ou service, jamais sur les commissions potentielles.</li>
+                <li>Nous ne recommandons jamais un produit ou service que nous ne considérons pas comme étant de bonne qualité.</li>
+                <li>Vous ne payez jamais plus en utilisant nos liens affiliés - les commissions sont payées par les entreprises, pas par vous.</li>
+                <li>Notre contenu est créé indépendamment de nos partenaires d'affiliation.</li>
+            </ul>
+            <p>Ce modèle nous permet de vous offrir gratuitement des informations de qualité tout en maintenant notre indépendance éditoriale.</p>
+        </div>
+    </section>
+    
+    <section class="about-testimonials">
+        <div class="container">
+            <h2>Ce que disent nos utilisateurs</h2>
+            <p>Découvrez ce que pensent les utilisateurs de HealthCompare et comment nos comparatifs les ont aidés à prendre de meilleures décisions.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Grâce à HealthCompare, j'ai pu choisir le service de télémédecine qui correspondait exactement à mes besoins. Les comparatifs sont clairs, précis et m'ont permis d'économiser beaucoup de temps de recherche.</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/team1-placeholder.jpg" alt="Julie Moreau" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Julie Moreau</div>
+                            <div class="testimonial-role">Utilisatrice depuis 2022</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-content">En tant que professionnel de santé, j'apprécie la rigueur avec laquelle HealthCompare analyse les produits et services. Je recommande régulièrement ce site à mes patients.</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/team2-placeholder.jpg" alt="Dr. Pierre Dupont" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Dr. Pierre Dupont</div>
+                            <div class="testimonial-role">Dentiste</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-content">Les articles sur le blog santé de HealthCompare sont une mine d'or d'informations. J'ai appris beaucoup de choses sur la santé préventive grâce à ce site, présentées d'une manière accessible et fiable.</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/team3-placeholder.jpg" alt="Emma Bernard" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Emma Bernard</div>
+                            <div class="testimonial-role">Abonnée newsletter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about-cta">
+        <div class="container">
+            <h2>Rejoignez notre équipe</h2>
+            <p>Vous êtes passionné par la santé et souhaitez contribuer à notre mission de rendre l'information de santé accessible à tous ? Nous sommes toujours à la recherche de talents pour renforcer notre équipe.</p>
+            <div class="cta-buttons">
+                <a href="../contact/index.html" class="btn btn-white">Voir nos offres d'emploi</a>
+                <a href="../contact/index.html" class="btn btn-outline">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2>Restez informé !</h2>
+                    <p>Inscrivez-vous à notre newsletter pour recevoir nos derniers comparatifs, guides d'achat et conseils santé directement dans votre boîte mail.</p>
+                    <div class="newsletter-features">
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>Comparatifs exclusifs</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>Codes promos exclusifs</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>Conseils d'experts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="newsletter-form">
+                    <form id="subscribe-form" action="#" method="POST">
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <span class="input-icon">👤</span>
+                                <input type="text" name="name" placeholder="Votre prénom" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <span class="input-icon">✉️</span>
+                                <input type="email" name="email" placeholder="Votre adresse e-mail" required>
+                            </div>
+                        </div>
+                        <div class="form-group consent-group">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">J'accepte de recevoir les newsletters et offres de HealthCompare</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="subscribe-btn">
+                            <span class="btn-text">S'inscrire maintenant</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </form>
+                    <p class="privacy-note">Nous respectons votre vie privée. Consultez notre <a href="../legal/index.html">politique de confidentialité</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>HealthCompare</h2>
+                    <p>Votre guide pour des choix de santé éclairés</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">À propos</a></li>
+                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services affiliés</h3>
+                    <ul>
+                        <li><a href="../services/teladoc.html" rel="sponsored">Teladoc Health</a></li>
+                        <li><a href="../services/sesamecare.html" rel="sponsored">Sesame Care</a></li>
+                        <li><a href="../services/everlywell.html" rel="sponsored">Everlywell</a></li>
+                        <li><a href="../services/letsgetchecked.html" rel="sponsored">LetsGetChecked</a></li>
+                        <li><a href="../services/hims-hers.html" rel="sponsored">Hims / Hers</a></li>
+                        <li><a href="../services/smiledirectclub.html" rel="sponsored">SmileDirectClub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: info@healthcompare.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="affiliate-disclosure">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/affiliate-tracking.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>

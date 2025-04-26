@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparateurs produits - HealthCompare</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <meta name="description" content="Tableaux comparatifs pour aligneurs dentaires, tests de santé, et brosses dentaires">
+    <style>
+/* Enhanced comparator page styling */
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 150px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../images/hero-pattern.svg');
+    background-repeat: repeat;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.page-header p {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.comparators-list {
+    padding: 60px 0 80px;
+}
+
+/* Enhanced comparison card styles */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.comparison-card {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-card);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+}
+
+.comparison-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.comparison-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-card:hover img {
+    transform: scale(1.05);
+}
+
+.comparison-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.comparison-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.comparison-card p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.comparison-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+    border: none;
+}
+
+.comparison-card .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(37, 99, 235, 0.25);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+/* Why compare section */
+.why-compare {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03), rgba(16, 185, 129, 0.03));
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.why-compare h2 {
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.feature::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature:hover::after {
+    opacity: 1;
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: white;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+}
+
+.feature h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.feature p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 60px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .comparators-list {
+        padding: 40px 0 60px;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>HealthCompare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Accueil</a></li>
+                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
+                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../services/index.html">Services</a></li>
+                    <li><a href="../about/index.html">À propos</a></li>
+                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" title="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Comparateurs de produits</h1>
+            <p>Trouvez les meilleurs produits de santé grâce à nos tableaux comparatifs détaillés</p>
+        </div>
+    </section>
+
+    <section class="comparators-list">
+        <div class="container">
+            <h2>Nos comparatifs de produits de santé</h2>
+            <p class="section-intro">Nous avons analysé pour vous les meilleures options disponibles sur le marché pour vous aider à faire le choix le plus adapté à vos besoins.</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card animate-fade-in">
+                    <img src="../../images/aligners-placeholder.jpg" alt="Aligneurs dentaires">
+                    <div class="comparison-card-content">
+                        <h3>Aligneurs dentaires</h3>
+                        <p>Comparez les meilleurs aligneurs invisibles du marché pour un sourire parfait à un prix abordable.</p>
+                        <a href="aligners.html" class="btn">Comparer</a>
+                    </div>
+                </div>
+                <div class="comparison-card animate-fade-in delay-100">
+                    <img src="../../images/health-tests-placeholder.jpeg" alt="Tests de santé">
+                    <div class="comparison-card-content">
+                        <h3>Tests de santé</h3>
+                        <p>Trouvez les tests de santé à domicile les plus fiables pour surveiller votre bien-être en toute simplicité.</p>
+                        <a href="health-tests.html" class="btn">Comparer</a>
+                    </div>
+                </div>
+                <div class="comparison-card animate-fade-in delay-200">
+                    <img src="../../images/toothbrushes-placeholder.jpg" alt="Brosses dentaires">
+                    <div class="comparison-card-content">
+                        <h3>Brosses dentaires</h3>
+                        <p>Découvrez les meilleures brosses à dents électriques pour une hygiène bucco-dentaire optimale.</p>
+                        <a href="toothbrushes.html" class="btn">Comparer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-compare">
+        <div class="container">
+            <h2>Pourquoi utiliser nos comparateurs ?</h2>
+            <div class="features-grid">
+                <div class="feature animate-slide-up">
+                    <div class="feature-icon">✓</div>
+                    <h3>Recherche approfondie</h3>
+                    <p>Nos experts analysent en profondeur chaque produit pour vous fournir des informations précises et à jour.</p>
+                </div>
+                <div class="feature animate-slide-up delay-100">
+                    <div class="feature-icon">✓</div>
+                    <h3>Comparaisons impartiales</h3>
+                    <p>Nous évaluons objectivement les produits selon des critères rigoureux pour vous aider à faire le meilleur choix.</p>
+                </div>
+                <div class="feature animate-slide-up delay-200">
+                    <div class="feature-icon">✓</div>
+                    <h3>Mise à jour régulière</h3>
+                    <p>Nos tableaux comparatifs sont régulièrement mis à jour pour refléter les dernières offres et innovations.</p>
+                </div>
+                <div class="feature animate-slide-up delay-300">
+                    <div class="feature-icon">✓</div>
+                    <h3>Avis d'utilisateurs</h3>
+                    <p>Nous intégrons les retours d'expérience réels des utilisateurs pour une vision complète des produits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>HealthCompare</h2>
+                    <p>Votre guide pour des choix de santé éclairés</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">À propos</a></li>
+                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services affiliés</h3>
+                    <ul>
+                        <li><a href="../services/teladoc.html" rel="sponsored">Teladoc Health</a></li>
+                        <li><a href="../services/sesamecare.html" rel="sponsored">Sesame Care</a></li>
+                        <li><a href="../services/everlywell.html" rel="sponsored">Everlywell</a></li>
+                        <li><a href="../services/letsgetchecked.html" rel="sponsored">LetsGetChecked</a></li>
+                        <li><a href="../services/hims-hers.html" rel="sponsored">Hims / Hers</a></li>
+                        <li><a href="../services/smiledirectclub.html" rel="sponsored">SmileDirectClub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: info@healthcompare.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="affiliate-disclosure">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/affiliate-tracking.js"></script>
+    <script src="../../js/analytics.js"></script>
+</body>
+</html>
