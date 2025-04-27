@@ -3,8 +3,6 @@
  * This version ensures links work properly with only essential functionality
  */
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile navigation toggle functionality only
-    initMobileNav();
     
     // Optional visual enhancements that don't affect navigation
     initScrollBehavior();
@@ -65,28 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // This ensures they work with default browser behavior
 });
 
-function initMobileNav() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav');
-    
-    if (!navToggle || !nav) return;
-    
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        nav.classList.toggle('active');
-        document.body.classList.toggle('nav-open');
-    });
-    
-    // Close mobile nav when clicking on links
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            nav.classList.remove('active');
-            document.body.classList.remove('nav-open');
-        });
-    });
-}
 
 function initScrollBehavior() {
     const header = document.querySelector('header');

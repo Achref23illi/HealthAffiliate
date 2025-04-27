@@ -2,7 +2,6 @@
  * Main JavaScript file for HealthCompare
  */
 document.addEventListener('DOMContentLoaded', () => {
-    initMobileNav();
     initScrollBehavior();
     setupLazyLoading();
     initAnimations();
@@ -76,78 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupForms();
 });
 
-function initMobileNav() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('nav');
-    
-    if (!navToggle || !nav) return;
-    
-    // Fix for nav toggle button - add spans if they don't exist
-    if (navToggle.children.length === 0) {
-        for (let i = 0; i < 3; i++) {
-            const span = document.createElement('span');
-            navToggle.appendChild(span);
-        }
-    }
-    
-    // Completely stop any previous click events from interfering
-    const newNavToggle = navToggle.cloneNode(true);
-    navToggle.parentNode.replaceChild(newNavToggle, navToggle);
-    
-    // Set up the toggle with clean event handler
-    newNavToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation(); // Prevent event bubbling
-        newNavToggle.classList.toggle('active');
-        nav.classList.toggle('active');
-        
-        // Prevent body scrolling when menu is open
-        document.body.classList.toggle('nav-open');
-    });
-    
-    // Ensure every navigation link works properly
-    const navLinks = nav.querySelectorAll('a');
-    navLinks.forEach(link => {
-        // Make sure event listeners don't stack
-        const newLink = link.cloneNode(true);
-        link.parentNode.replaceChild(newLink, link);
-        
-        // Make links native - no custom JS that could interfere
-        newLink.addEventListener('click', function(e) {
-            // Close the menu first
-            newNavToggle.classList.remove('active');
-            nav.classList.remove('active');
-            document.body.classList.remove('nav-open');
-            
-            // Let the browser handle the navigation naturally
-            // We only need special treatment for in-page links
-            const href = this.getAttribute('href');
-            if (href && href.startsWith('#') && href !== '#') {
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    e.preventDefault();
-                    setTimeout(() => {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 20,
-                            behavior: 'smooth'
-                        });
-                    }, 100);
-                }
-            }
-        });
-    });
-    
-    // Close mobile nav when clicking outside
-    document.addEventListener('click', (event) => {
-        if (nav.classList.contains('active') && 
-            !event.target.closest('nav') && 
-            !event.target.closest('.nav-toggle')) {
-            newNavToggle.classList.remove('active');
-            nav.classList.remove('active');
-            document.body.classList.remove('nav-open');
-        }
-    });
-}
+
 
 function initScrollBehavior() {
     const header = document.querySelector('header');

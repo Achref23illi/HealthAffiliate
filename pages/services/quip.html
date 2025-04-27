@@ -37,6 +37,9 @@
             padding: 80px 0;
             position: relative;
             overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
         }
         
         .service-hero::before {
@@ -55,6 +58,7 @@
         .service-hero .container {
             position: relative;
             z-index: 2;
+            width: 100%;
         }
         
         .service-logo {
@@ -463,14 +467,43 @@
         }
         
         @media (max-width: 768px) {
+            .service-hero {
+                padding: 100px 0;
+                min-height: 500px;
+                text-align: center;
+            }
+            
             .service-logo {
                 flex-direction: column;
                 text-align: center;
+                align-items: center;
             }
             
             .service-logo img {
                 margin-right: 0;
                 margin-bottom: 20px;
+                width: 150px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+            
+            .service-hero p {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .cta-buttons .btn {
+                width: 80%;
             }
             
             .comparison-table {
@@ -480,6 +513,25 @@
             .comparison-table th,
             .comparison-table td {
                 padding: 10px 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .service-hero {
+                padding: 80px 0;
+                min-height: 550px;
+            }
+            
+            .service-logo img {
+                width: 130px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
             }
         }
     </style>
@@ -993,6 +1045,7 @@
     <script src="../../js/main.js"></script>
     <script src="../../js/affiliate-tracking.js"></script>
     <script src="../../js/analytics.js"></script>
+    <script src="../../js/mobile-menu.js" ></script>
     <script>
         // Initialize FAQ toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
