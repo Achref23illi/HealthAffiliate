@@ -90,22 +90,50 @@ function initMobileNav() {
         }
     }
     
-    navToggle.addEventListener('click', (e) => {
+    // Completely stop any previous click events from interfering
+    const newNavToggle = navToggle.cloneNode(true);
+    navToggle.parentNode.replaceChild(newNavToggle, navToggle);
+    
+    // Set up the toggle with clean event handler
+    newNavToggle.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation(); // Prevent event bubbling
-        navToggle.classList.toggle('active');
+        newNavToggle.classList.toggle('active');
         nav.classList.toggle('active');
         
         // Prevent body scrolling when menu is open
         document.body.classList.toggle('nav-open');
     });
     
-    // Close mobile nav when clicking on links
+    // Ensure every navigation link works properly
     const navLinks = nav.querySelectorAll('a');
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
+        // Make sure event listeners don't stack
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+        
+        // Make links native - no custom JS that could interfere
+        newLink.addEventListener('click', function(e) {
+            // Close the menu first
+            newNavToggle.classList.remove('active');
             nav.classList.remove('active');
             document.body.classList.remove('nav-open');
+            
+            // Let the browser handle the navigation naturally
+            // We only need special treatment for in-page links
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#') && href !== '#') {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
         });
     });
     
@@ -114,7 +142,7 @@ function initMobileNav() {
         if (nav.classList.contains('active') && 
             !event.target.closest('nav') && 
             !event.target.closest('.nav-toggle')) {
-            navToggle.classList.remove('active');
+            newNavToggle.classList.remove('active');
             nav.classList.remove('active');
             document.body.classList.remove('nav-open');
         }
