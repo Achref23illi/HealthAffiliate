@@ -82,7 +82,16 @@ function initMobileNav() {
     
     if (!navToggle || !nav) return;
     
-    navToggle.addEventListener('click', () => {
+    // Fix for nav toggle button - add spans if they don't exist
+    if (navToggle.children.length === 0) {
+        for (let i = 0; i < 3; i++) {
+            const span = document.createElement('span');
+            navToggle.appendChild(span);
+        }
+    }
+    
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
         navToggle.classList.toggle('active');
         nav.classList.toggle('active');
         
