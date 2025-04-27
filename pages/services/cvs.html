@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVS Pharmacy - Produits pharmaceutiques et services de santé | HealthCompare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <meta name="description" content="Découvrez CVS Pharmacy - Votre partenaire pour les médicaments sur ordonnance, les produits de santé, les vaccinations et les services cliniques avec des options pratiques en magasin et de livraison à domicile.">
+    
+    <!-- Custom page styles -->
+    <style>
+        :root {
+            --cvs-red: #CC0000;
+            --cvs-dark-red: #990000;
+            --cvs-light-red: #FFECEC;
+            --cvs-gray: #333333;
+            --cvs-light-gray: #F5F5F5;
+        }
+        
+        .service-hero {
+            background: linear-gradient(135deg, var(--cvs-red), var(--cvs-dark-red));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../images/hero-pattern.svg');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .service-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .service-logo img {
+            width: 120px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            background: white;
+            padding: 10px;
+        }
+        
+        .service-details {
+            padding: 60px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .service-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--cvs-red);
+        }
+        
+        .service-content p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .benefits-section {
+            background-color: var(--cvs-light-gray);
+            padding: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--cvs-light-red);
+            color: var(--cvs-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .benefit-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .how-it-works {
+            padding: 60px 0;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--cvs-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .membership-section {
+            background-color: var(--cvs-light-red);
+            padding: 60px 0;
+        }
+        
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .membership-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--cvs-red);
+        }
+        
+        .membership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .membership-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cvs-red);
+            margin: 20px 0;
+        }
+        
+        .membership-period {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .membership-features {
+            text-align: left;
+            margin: 20px 0;
+        }
+        
+        .membership-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .membership-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--cvs-red);
+            font-weight: bold;
+        }
+        
+        .clinic-services {
+            padding: 60px 0;
+        }
+        
+        .service-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .service-table th {
+            background: var(--cvs-red);
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+        
+        .service-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .service-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .service-table tr:nth-child(even) {
+            background-color: rgba(204, 0, 0, 0.05);
+        }
+        
+        .testimonials-section {
+            background-color: var(--cvs-light-gray);
+            padding: 60px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: rgba(204, 0, 0, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-rating {
+            color: #F59E0B;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .faq-section {
+            padding: 60px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--cvs-red);
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--cvs-red), var(--cvs-dark-red));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .service-logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-logo img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>HealthCompare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Accueil</a></li>
+                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
+                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../services/index.html">Services</a></li>
+                    <li><a href="../about/index.html">À propos</a></li>
+                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-logo">
+                <img src="../../images/cvs-placeholder.png" alt="Logo CVS Pharmacy">
+                <h1>CVS Pharmacy</h1>
+            </div>
+            <p class="animate-slide-up">Produits pharmaceutiques et services de santé complets</p>
+            <div class="cta-buttons animate-slide-up delay-200">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter le site officiel</a>
+                <a href="#service-details" class="btn btn-outline">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-details" class="service-details">
+        <div class="container">
+            <h2 class="text-center">Une destination unique pour tous vos besoins de santé</h2>
+            <p class="section-intro">CVS Pharmacy offre une gamme complète de services pharmaceutiques et de produits de santé, avec plus de 9,900 emplacements aux États-Unis. De la gestion de vos médicaments sur ordonnance aux vaccins, en passant par une vaste sélection de produits de bien-être, CVS s'engage à rendre les soins de santé plus accessibles et pratiques.</p>
+            
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll" data-animation="fade-in">
+                    <div class="service-img">
+                        <img src="../../images/cvs-prescription-placeholder.jpg" alt="Services d'ordonnance">
+                    </div>
+                    <div class="service-content">
+                        <h3>Services d'ordonnance</h3>
+                        <p>Gestion facile de vos ordonnances avec des options de transfert, de renouvellement automatique et des alertes de médicaments. Options de retrait en magasin ou de livraison à domicile disponibles.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.1">
+                    <div class="service-img">
+                        <img src="../../images/cvs-vaccination-placeholder.jpg" alt="Vaccinations">
+                    </div>
+                    <div class="service-content">
+                        <h3>Services de vaccination</h3>
+                        <p>Vaccins contre la grippe, le tétanos, la pneumonie et bien d'autres, administrés par des pharmaciens certifiés. Rendez-vous disponibles ou service sans rendez-vous.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.2">
+                    <div class="service-img">
+                        <img src="../../images/cvs-minuteclinic-placeholder.jpg" alt="MinuteClinic">
+                    </div>
+                    <div class="service-content">
+                        <h3>MinuteClinic</h3>
+                        <p>Services de clinique sans rendez-vous pour le traitement des maladies mineures, des blessures, et des services de bien-être préventifs assurés par des infirmières praticiennes et des assistants médicaux.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.3">
+                    <div class="service-img">
+                        <img src="../../images/cvs-carepass-placeholder.jpg" alt="Programme CarePass">
+                    </div>
+                    <div class="service-content">
+                        <h3>Programme CarePass</h3>
+                        <p>Programme d'adhésion premium offrant des avantages comme la livraison gratuite, des remises mensuelles et un accès privilégié au service d'assistance pharmaceutique 24h/24 et 7j/7.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.4">
+                    <div class="service-img">
+                        <img src="../../images/cvs-healthhub-placeholder.jpg" alt="HealthHUB">
+                    </div>
+                    <div class="service-content">
+                        <h3>HealthHUB</h3>
+                        <p>Espaces de santé élargis dans certains magasins offrant une gamme étendue de services de santé, de bien-être et de produits, avec des professionnels de la santé sur place.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.5">
+                    <div class="service-img">
+                        <img src="../../images/cvs-extracare-placeholder.jpg" alt="Programme ExtraCare">
+                    </div>
+                    <div class="service-content">
+                        <h3>Programme ExtraCare</h3>
+                        <p>Programme de fidélité gratuit offrant des économies personnalisées, des extrabucks (remises en argent), et des offres spéciales sur des milliers de produits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="text-center">Avantages des services CVS</h2>
+            <p class="section-intro">Découvrez pourquoi des millions de personnes choisissent CVS pour leurs besoins de santé.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h3>Commodité</h3>
+                    <p>Accès facile avec près de 10 000 emplacements aux États-Unis, dont de nombreux ouverts 24h/24 et 7j/7.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>Services complets</h3>
+                    <p>Tout ce dont vous avez besoin pour votre santé au même endroit - de la pharmacie aux produits de bien-être en passant par les soins cliniques.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h3>Expertise professionnelle</h3>
+                    <p>Personnel pharmaceutique hautement qualifié et professionnels de la santé disponibles pour répondre à vos questions et vous conseiller.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Sécurité</h3>
+                    <p>Systèmes avancés de vérification des médicaments et de sécurité des patients pour prévenir les erreurs et les interactions médicamenteuses.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <h3>Options numériques</h3>
+                    <p>Application mobile et outils en ligne intuitifs pour gérer vos ordonnances, prendre rendez-vous et accéder à vos dossiers de santé.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3>Gain de temps</h3>
+                    <p>Services de drive-thru, retrait en magasin rapide et options de livraison à domicile pour s'adapter à votre emploi du temps chargé.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="text-center">Comment utiliser les services de pharmacie CVS</h2>
+            <p class="section-intro">Gérer vos prescriptions et accéder aux services CVS est simple et pratique.</p>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Transférer ou déposer une ordonnance</h3>
+                    <p>Apportez votre nouvelle ordonnance à votre pharmacie CVS locale, transférez-la depuis une autre pharmacie, ou demandez à votre médecin de l'envoyer électroniquement.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Configurer votre compte</h3>
+                    <p>Créez un compte CVS en ligne ou sur l'application mobile pour gérer vos médicaments, programmer des renouvellements et recevoir des alertes.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Choisir votre méthode de retrait</h3>
+                    <p>Optez pour le retrait en magasin, au drive-thru, ou la livraison à domicile selon ce qui vous convient le mieux.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Configurer les renouvellements automatiques</h3>
+                    <p>Activez les renouvellements automatiques pour vos médicaments réguliers afin qu'ils soient toujours prêts à temps avant que vous ne soyez à court.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="membership-section">
+        <div class="container">
+            <h2 class="text-center">Programmes de fidélité et d'adhésion</h2>
+            <p class="section-intro">CVS propose différents programmes pour vous faire économiser et améliorer votre expérience.</p>
+            
+            <div class="membership-grid">
+                <div class="membership-card">
+                    <h3>ExtraCare</h3>
+                    <div class="membership-price">
+                        Gratuit
+                    </div>
+                    <ul class="membership-features">
+                        <li>2% de remise en ExtraBucks sur la plupart des achats</li>
+                        <li>Offres personnalisées basées sur vos achats</li>
+                        <li>Promotions hebdomadaires exclusives</li>
+                        <li>Remises d'anniversaire spéciales</li>
+                        <li>Application mobile pour suivre vos économies</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" rel="sponsored">S'inscrire gratuitement</a>
+                </div>
+                
+                <div class="membership-card">
+                    <h3>CarePass</h3>
+                    <div class="membership-price">
+                        5$ <span class="membership-period">par mois</span>
+                    </div>
+                    <ul class="membership-features">
+                        <li>10$ de récompenses ExtraBucks chaque mois</li>
+                        <li>Livraison gratuite sur les ordonnances et achats en ligne</li>
+                        <li>Remise de 20% sur les produits de marque CVS Health</li>
+                        <li>Accès à une ligne d'assistance pharmaceutique 24h/24</li>
+                        <li>Tous les avantages du programme ExtraCare</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" rel="sponsored">En savoir plus</a>
+                </div>
+                
+                <div class="membership-card">
+                    <h3>CVS HealthSavings Pass</h3>
+                    <div class="membership-price">
+                        15$ <span class="membership-period">par an</span>
+                    </div>
+                    <ul class="membership-features">
+                        <li>Médicaments génériques à partir de 11,99$ pour 90 jours</li>
+                        <li>Plus de 500 médicaments génériques éligibles</li>
+                        <li>Idéal pour les personnes sans assurance</li>
+                        <li>Économies sur les médicaments pour le diabète</li>
+                        <li>Applicable à tous les membres de la famille</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" rel="sponsored">Découvrir le programme</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="clinic-services">
+        <div class="container">
+            <h2 class="text-center">Services de clinique MinuteClinic</h2>
+            <p class="section-intro">Les cliniques MinuteClinic de CVS offrent une large gamme de services de santé assurés par des infirmiers praticiens et des assistants médicaux certifiés.</p>
+            
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Type de service</th>
+                        <th>Description</th>
+                        <th>Prix approximatif</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maladies et blessures mineures</td>
+                        <td>Traitement des allergies, infections, toux, grippe, maux de gorge, infections de la peau, entorses et plus encore</td>
+                        <td>89$ - 129$</td>
+                    </tr>
+                    <tr>
+                        <td>Vaccins et injections</td>
+                        <td>Grippe, pneumonie, tétanos, hépatite, méningite et autres vaccins recommandés</td>
+                        <td>50$ - 150$</td>
+                    </tr>
+                    <tr>
+                        <td>Dépistages et tests de santé</td>
+                        <td>Cholestérol, diabète, A1C, maladies sexuellement transmissibles, et autres tests de dépistage</td>
+                        <td>39$ - 129$</td>
+                    </tr>
+                    <tr>
+                        <td>Bien-être et prévention</td>
+                        <td>Examens physiques, dépistages préventifs, conseil en nutrition et gestion du poids</td>
+                        <td>59$ - 89$</td>
+                    </tr>
+                    <tr>
+                        <td>Gestion des maladies chroniques</td>
+                        <td>Suivi du diabète, de l'hypertension, de l'hypercholestérolémie et de l'asthme</td>
+                        <td>69$ - 99$</td>
+                    </tr>
+                    <tr>
+                        <td>Services de santé pour femmes</td>
+                        <td>Dépistage des infections urinaires, examens gynécologiques de base, contraception et conseils</td>
+                        <td>89$ - 139$</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="mt-3 text-center"><small>* Les prix indiqués sont approximatifs et peuvent varier selon l'emplacement et la couverture d'assurance. De nombreuses assurances sont acceptées.</small></p>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="text-center">Ce que disent nos clients</h2>
+            <p class="section-intro">Découvrez les expériences d'autres clients avec les services de CVS Pharmacy.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"Le service de livraison de CVS a complètement changé ma façon de gérer mes médicaments. Avec trois ordonnances régulières, je n'ai plus à me déplacer chaque mois. Tout arrive directement chez moi, et l'application me permet de tout suivre facilement."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial1-placeholder.jpg" alt="Robert M.">
+                        <div>
+                            <strong>Robert M.</strong>
+                            <span>Client depuis 3 ans</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"En tant que mère de trois enfants, MinuteClinic est un véritable sauveur. Quand l'un d'eux est malade le week-end ou après les heures de bureau, je peux toujours compter sur CVS pour des soins rapides sans rendez-vous. Les infirmières praticiennes sont toujours professionnelles et attentionnées."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial2-placeholder.jpg" alt="Jennifer P.">
+                        <div>
+                            <strong>Jennifer P.</strong>
+                            <span>Cliente depuis 5 ans</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★☆</div>
+                    <p>"L'adhésion CarePass vaut vraiment son pesant d'or. Je récupère 10$ en récompenses chaque mois, ce qui dépasse déjà le coût de l'adhésion, et la livraison gratuite est un bonus appréciable. Mon seul petit bémol concerne les délais de livraison qui peuvent parfois être un peu plus longs que prévu."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial3-placeholder.jpg" alt="David L.">
+                        <div>
+                            <strong>David L.</strong>
+                            <span>Membre CarePass depuis 1 an</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center">Questions fréquentes</h2>
+            <p class="section-intro">Trouvez les réponses aux questions les plus courantes sur les services de CVS Pharmacy.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Comment transférer mes ordonnances à CVS ?</div>
+                    <div class="faq-answer">
+                        <p>Vous pouvez transférer vos ordonnances à CVS de plusieurs façons : en ligne via le site web ou l'application CVS, par téléphone en appelant votre pharmacie CVS locale, ou en personne en apportant vos flacons de médicaments actuels ou les informations de votre pharmacie actuelle. Le processus est généralement rapide, et dans la plupart des cas, vos médicaments seront disponibles pour être récupérés le jour même ou le lendemain.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Comment fonctionne le service de livraison de médicaments ?</div>
+                    <div class="faq-answer">
+                        <p>CVS propose plusieurs options de livraison de médicaments. La livraison standard est généralement gratuite et les médicaments sont livrés en 1-2 jours. La livraison le jour même est disponible dans de nombreux endroits moyennant des frais supplémentaires. Pour utiliser ce service, vous pouvez sélectionner l'option de livraison lors du renouvellement de votre ordonnance via l'application ou le site web, ou demander la livraison par téléphone. Les membres CarePass bénéficient de la livraison gratuite sur toutes les ordonnances et les commandes en ligne.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Ai-je besoin d'un rendez-vous pour utiliser MinuteClinic ?</div>
+                    <div class="faq-answer">
+                        <p>Bien que MinuteClinic accepte les patients sans rendez-vous, il est recommandé de prendre rendez-vous en ligne ou via l'application CVS pour réduire les temps d'attente. Vous pouvez voir les horaires disponibles en temps réel et réserver un créneau qui vous convient. Certains services spécifiques, comme les examens physiques complets ou les visites de bien-être, peuvent nécessiter un rendez-vous préalable. Pour les problèmes urgents, le service sans rendez-vous reste toujours disponible pendant les heures d'ouverture.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Comment fonctionnent les récompenses ExtraCare et ExtraBucks ?</div>
+                    <div class="faq-answer">
+                        <p>Le programme ExtraCare vous permet de gagner 2% de remise en ExtraBucks sur presque tous vos achats en magasin et en ligne. Ces ExtraBucks sont comme de l'argent CVS que vous pouvez utiliser lors de vos prochains achats. Ils sont émis trimestriellement, mais vous pouvez choisir de les recevoir après chaque transaction via l'application CVS. De plus, vous recevez des offres personnalisées basées sur vos habitudes d'achat, des promotions hebdomadaires exclusives et une récompense d'anniversaire. Pour en profiter, il suffit de scanner votre carte ExtraCare ou d'entrer votre numéro de téléphone lors de vos achats.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Quelles assurances sont acceptées par CVS ?</div>
+                    <div class="faq-answer">
+                        <p>CVS Pharmacy accepte la plupart des principaux plans d'assurance maladie et d'assurance médicaments. Cela inclut Medicare Part D, Medicaid, et de nombreuses assurances privées et fournies par les employeurs. Pour les services MinuteClinic, de nombreux plans d'assurance sont également acceptés, avec des copaiements souvent similaires à ceux d'une visite chez un médecin de soins primaires. Pour vérifier si votre assurance spécifique est acceptée, vous pouvez consulter le site web de CVS, appeler votre pharmacie locale ou contacter directement votre assureur. Si vous n'avez pas d'assurance, CVS propose plusieurs programmes d'économies comme le HealthSavings Pass pour vous aider à réduire vos coûts.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Comment renouveler mes prescriptions automatiquement ?</div>
+                    <div class="faq-answer">
+                        <p>CVS propose un service de renouvellement automatique appelé ReadyFill®. Pour l'activer, vous pouvez en faire la demande auprès de votre pharmacien, le configurer via votre compte en ligne ou sur l'application CVS. Une fois activé, CVS préparera automatiquement vos renouvellements avant que vous ne soyez à court de médicaments. Vous recevrez une notification lorsque votre médicament sera prêt à être récupéré ou livré. Ce service est particulièrement utile pour les médicaments que vous prenez régulièrement. Vous pouvez gérer vos préférences, comme la méthode de notification et le mode de livraison, à tout moment via votre compte.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Simplifiez la gestion de votre santé</h2>
+            <p>Découvrez les services complets de CVS Pharmacy pour tous vos besoins pharmaceutiques et de santé.</p>
+            <div class="cta-buttons mt-4">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter CVS Pharmacy</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>HealthCompare</h2>
+                    <p>Votre guide pour des choix de santé éclairés</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">À propos</a></li>
+                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services affiliés</h3>
+                    <ul>
+                        <li><a href="teladoc.html" rel="sponsored">Teladoc Health</a></li>
+                        <li><a href="sesamecare.html" rel="sponsored">Sesame Care</a></li>
+                        <li><a href="everlywell.html" rel="sponsored">Everlywell</a></li>
+                        <li><a href="letsgetchecked.html" rel="sponsored">LetsGetChecked</a></li>
+                        <li><a href="hims-hers.html" rel="sponsored">Hims / Hers</a></li>
+                        <li><a href="smiledirectclub.html" rel="sponsored">SmileDirectClub</a></li>
+                        <li><a href="ritual.html" rel="sponsored">Ritual</a></li>
+                        <li><a href="quip.html" rel="sponsored">Quip</a></li>
+                        <li><a href="iherb.html" rel="sponsored">iHerb</a></li>
+                        <li><a href="cvs.html" rel="sponsored">CVS Pharmacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: info@healthcompare.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <span class="visually-hidden">Facebook</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <span class="visually-hidden">Twitter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <span class="visually-hidden">Instagram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="affiliate-disclosure" role="note">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/affiliate-tracking.js"></script>
+    <script src="../../js/analytics.js"></script>
+    <script>
+        // Initialize FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

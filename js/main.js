@@ -8,13 +8,53 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
     setupTestimonialSlider();
 
-    // Ensure default behavior for anchor tags with href
-    const anchorTags = document.querySelectorAll('a[href]');
-    anchorTags.forEach(anchor => {
+    // EMERGENCY FIX: Make "En savoir plus" buttons work properly
+    document.querySelectorAll('a[href="#service-details"], a[href="#how-it-works"], a.btn-outline').forEach(button => {
+        button.onclick = function(event) {
+            const href = this.getAttribute('href');
+            
+            // If it's a hash link, handle smooth scrolling
+            if (href && href.startsWith('#')) {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    event.preventDefault();
+                    const offsetTop = targetElement.offsetTop - 20;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+            }
+            
+            // For ALL other links - let them work naturally without interference
+            return true;
+        };
+    });
+
+    // Only add special handling for in-page anchor links that aren't handled above
+    document.querySelectorAll('a[href^="#"]:not([href="#service-details"]):not([href="#how-it-works"]):not(.btn-outline)').forEach(anchor => {
+        // Only add the special handling to hash links
         anchor.addEventListener('click', (event) => {
             const href = anchor.getAttribute('href');
-            if (href && href !== '#') {
-                // Allow default navigation
+            
+            // Skip empty hash links (just #)
+            if (href === '#') {
+                event.preventDefault();
+                return;
+            }
+            
+            // Handle in-page navigation with smooth scrolling
+            if (href.length > 1) {
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    event.preventDefault();
+                    const offsetTop = targetElement.offsetTop - 20;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -96,24 +136,6 @@ function initScrollBehavior() {
             lastScroll = currentScroll;
         }
     }, { passive: true });
-    
-    // Smooth scroll for anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - headerHeight - 20;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
 }
 
 function setupLazyLoading() {

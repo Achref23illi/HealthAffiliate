@@ -47,11 +47,14 @@
     margin: 15px auto;
     padding: 10px 20px;
     background-color: #3498db;
-    color: #fff;
+    color: #fff !important; /* Ensure text is white */
     text-align: center;
     border-radius: 4px;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 .service-card .btn:hover {
@@ -224,5 +227,23 @@
     <script src="../../js/main.js"></script>
     <script src="../../js/affiliate-tracking.js"></script>
     <script src="../../js/analytics.js"></script>
+    
+    <!-- Special fix for the En savoir plus buttons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Direct fix for the "En savoir plus" buttons
+            document.querySelectorAll('.service-card .btn').forEach(button => {
+                // Remove any existing event listeners that might be preventing default behavior
+                const newButton = button.cloneNode(true);
+                button.parentNode.replaceChild(newButton, button);
+                
+                // Explicitly ensure clicking works correctly
+                newButton.onclick = function(e) {
+                    window.location.href = this.getAttribute('href');
+                    return true;
+                };
+            });
+        });
+    </script>
 </body>
 </html>
