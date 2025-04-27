@@ -1,40 +1,501 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teladoc Health</title>
+    <title>Teladoc Health - Consultations médicales en ligne | HealthCompare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../../css/style.css">
+    
+    <meta name="description" content="Découvrez Teladoc Health - Un service de consultations médicales en ligne avec des médecins certifiés disponibles 24h/24 et 7j/7. Obtenez des avis médicaux sans quitter votre domicile.">
+    
+    <!-- Custom page styles -->
+    <style>
+        .service-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../images/hero-pattern.svg');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .service-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .service-logo img {
+            width: 120px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            background: white;
+            padding: 10px;
+        }
+        
+        .service-details {
+            padding: 60px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow-card);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon svg {
+            width: 30px;
+            height: 30px;
+            color: var(--primary-dark);
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .pricing-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background-color: var(--light-background);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        .testimonial-wrapper {
+            margin: 40px 0;
+            padding: 30px;
+            background-color: var(--light-background);
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+        
+        .faq-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-logo img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-    <div class="container">
-        <div class="logo">
-            <h1>HealthCompare</h1>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>HealthCompare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Accueil</a></li>
+                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
+                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../services/index.html">Services</a></li>
+                    <li><a href="../about/index.html">À propos</a></li>
+                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <nav>
-            <ul>
-                <li><a href="../../index.html">Accueil</a></li>
-                <li><a href="../comparators/index.html">Comparateurs produits</a></li>
-                <li><a href="../blog/index.html">Blog santé</a></li>
-                <li><a href="../services/index.html">Services</a></li>
-                <li><a href="../about/index.html">À propos</a></li>
-                <li><a href="../legal/index.html">Mentions légales</a></li>
-                <li><a href="../contact/index.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<section class="service-affiliate">
-    <div class="container">
-        <h1>Teladoc Health</h1>
-        <img src="../../images/teladoc-placeholder.jpg" alt="Teladoc Health">
-        <p>Consultations médicales en ligne avec des médecins certifiés disponibles 24h/24 et 7j/7.</p>
-        <a href="#" class="btn btn-primary" rel="sponsored">Visiter le site affilié</a>
-    </div>
-</section>
-<footer>
-    <!-- ...existing code for footer... -->
-</footer>
+    </header>
+
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-logo">
+                <img src="../../images/teladoc-placeholder.webp" alt="Logo Teladoc Health">
+                <h1>Teladoc Health</h1>
+            </div>
+            <p class="animate-slide-up">Consultations médicales en ligne avec des médecins certifiés disponibles 24h/24 et 7j/7</p>
+            <div class="cta-buttons animate-slide-up delay-200">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter le site officiel</a>
+                <a href="#service-details" class="btn btn-outline">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-details" class="service-details">
+        <div class="container">
+            <h2 class="text-center">Services proposés par Teladoc Health</h2>
+            <p class="section-intro">Teladoc Health offre une large gamme de services de télémédecine pour répondre à vos besoins médicaux sans avoir à quitter votre domicile. Consultez des médecins qualifiés par vidéo ou téléphone pour des diagnostics, des ordonnances et des conseils médicaux.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll" data-animation="fade-in">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3>Soins quotidiens</h3>
+                    <p>Consultez des médecins pour des problèmes comme la grippe, les allergies, les infections urinaires, les maux de gorge et plus encore. Obtenez un diagnostic rapide et une ordonnance si nécessaire.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll" data-animation="fade-in" data-delay="0.1">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path></svg>
+                    </div>
+                    <h3>Santé mentale</h3>
+                    <p>Accédez à des psychiatres et psychologues qualifiés pour le traitement de la dépression, de l'anxiété, du stress et d'autres problèmes de santé mentale.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll" data-animation="fade-in" data-delay="0.2">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h3>Spécialistes médicaux</h3>
+                    <p>Consultez des spécialistes comme des dermatologues, des cardiologues ou des endocrinologues sans les longues périodes d'attente habituelles.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll" data-animation="fade-in" data-delay="0.3">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h3>Rendez-vous flexibles</h3>
+                    <p>Planifiez des consultations à l'avance ou obtenez des soins à la demande selon vos besoins. Le service est disponible 24h/24, 7j/7, y compris les week-ends et jours fériés.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll" data-animation="fade-in" data-delay="0.4">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5"></path></svg>
+                    </div>
+                    <h3>Ordonnances en ligne</h3>
+                    <p>Recevez des ordonnances électroniques envoyées directement à votre pharmacie préférée pour un retrait rapide ou une livraison à domicile.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll" data-animation="fade-in" data-delay="0.5">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Vie privée et sécurité</h3>
+                    <p>Toutes les consultations sont entièrement privées et sécurisées, conformes aux normes de confidentialité médicale et de protection des données.</p>
+                </div>
+            </div>
+            
+            <div class="pricing-section mt-5">
+                <h3 class="text-center mb-3">Options tarifaires</h3>
+                <p class="text-center">Les tarifs varient en fonction de votre couverture d'assurance et du type de consultation. Voici les options générales :</p>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Type de service</th>
+                            <th>Avec assurance</th>
+                            <th>Sans assurance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Soins de médecine générale</td>
+                            <td>Copaiement selon votre plan</td>
+                            <td>À partir de 75€</td>
+                        </tr>
+                        <tr>
+                            <td>Consultations spécialistes</td>
+                            <td>Copaiement selon votre plan</td>
+                            <td>À partir de 95€</td>
+                        </tr>
+                        <tr>
+                            <td>Santé mentale (thérapie)</td>
+                            <td>Copaiement selon votre plan</td>
+                            <td>À partir de 85€</td>
+                        </tr>
+                        <tr>
+                            <td>Santé mentale (psychiatrie)</td>
+                            <td>Copaiement selon votre plan</td>
+                            <td>À partir de 110€</td>
+                        </tr>
+                        <tr>
+                            <td>Dermatologie</td>
+                            <td>Copaiement selon votre plan</td>
+                            <td>À partir de 85€</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p class="mt-3"><small>* Les prix indiqués sont approximatifs et peuvent varier. Veuillez consulter le site officiel de Teladoc Health pour les tarifs actuels.</small></p>
+            </div>
+            
+            <div class="testimonial-wrapper mt-5">
+                <div class="testimonial">
+                    <p>"J'ai utilisé Teladoc pendant que j'étais en voyage et que j'ai développé une infection urinaire. J'ai obtenu un rendez-vous en moins d'une heure, reçu une ordonnance rapidement et pu commencer mon traitement sans délai. Ce service m'a évité de chercher une clinique dans une ville que je ne connaissais pas."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial1-placeholder.jpg" alt="Claire M." class="testimonial-avatar">
+                        <div>
+                            <strong>Claire M.</strong>
+                            <span>Utilisatrice depuis 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center">Questions fréquentes</h2>
+            <p class="section-intro">Voici les réponses aux questions les plus courantes concernant les services de Teladoc Health.</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Comment se déroule une consultation en ligne ?</h3>
+                    <div class="faq-answer">
+                        <p>Après avoir pris rendez-vous, vous recevrez un lien pour rejoindre votre consultation vidéo. Vous pouvez utiliser votre ordinateur, tablette ou smartphone équipé d'une caméra et d'un microphone. Le médecin discutera de vos symptômes, posera des questions sur votre historique médical et recommandera un traitement.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Teladoc est-il couvert par mon assurance ?</h3>
+                    <div class="faq-answer">
+                        <p>Teladoc collabore avec de nombreuses compagnies d'assurance, mutuelles et employeurs. Consultez votre police d'assurance ou contactez votre assureur pour vérifier si les services Teladoc sont inclus dans votre couverture.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Les médecins peuvent-ils prescrire des médicaments ?</h3>
+                    <div class="faq-answer">
+                        <p>Oui, les médecins Teladoc peuvent prescrire de nombreux médicaments lorsque cela est médicalement nécessaire. Ils ne peuvent cependant pas prescrire de substances contrôlées, de médicaments restreints ou certains autres médicaments qui nécessitent un examen en personne.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Combien de temps dure une consultation ?</h3>
+                    <div class="faq-answer">
+                        <p>Les consultations médicales générales durent généralement entre 10 et 15 minutes, tandis que les consultations avec des spécialistes ou pour la santé mentale peuvent durer jusqu'à 45-60 minutes selon le type de service.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Puis-je choisir mon médecin ?</h3>
+                    <div class="faq-answer">
+                        <p>Pour les consultations à la demande, vous serez mis en relation avec le premier médecin disponible. Pour les rendez-vous programmés, vous pouvez souvent choisir parmi une liste de médecins disponibles en fonction de leurs spécialités et de leurs horaires.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quelles sont les langues disponibles ?</h3>
+                    <div class="faq-answer">
+                        <p>Teladoc propose généralement des consultations en français et en anglais, avec des options pour d'autres langues selon la disponibilité des médecins. Des services de traduction peuvent être proposés pour certaines langues supplémentaires.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à consulter un médecin en ligne ?</h2>
+            <p>Inscrivez-vous dès aujourd'hui et obtenez des soins médicaux de qualité où que vous soyez.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter Teladoc Health</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>HealthCompare</h2>
+                    <p>Votre guide pour des choix de santé éclairés</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">À propos</a></li>
+                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services affiliés</h3>
+                    <ul>
+                        <li><a href="teladoc.html" rel="sponsored">Teladoc Health</a></li>
+                        <li><a href="sesamecare.html" rel="sponsored">Sesame Care</a></li>
+                        <li><a href="everlywell.html" rel="sponsored">Everlywell</a></li>
+                        <li><a href="letsgetchecked.html" rel="sponsored">LetsGetChecked</a></li>
+                        <li><a href="hims-hers.html" rel="sponsored">Hims / Hers</a></li>
+                        <li><a href="smiledirectclub.html" rel="sponsored">SmileDirectClub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: info@healthcompare.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <span class="visually-hidden">Facebook</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <span class="visually-hidden">Twitter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <span class="visually-hidden">Instagram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="affiliate-disclosure" role="note">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/affiliate-tracking.js"></script>
+    <script src="../../js/analytics.js"></script>
+    <script>
+        // Initialize FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const heading = item.querySelector('h3');
+                const answer = item.querySelector('.faq-answer');
+                
+                // Set initial state
+                answer.style.display = 'none';
+                
+                heading.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').style.display = 'none';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (isActive) {
+                        item.classList.remove('active');
+                        answer.style.display = 'none';
+                    } else {
+                        item.classList.add('active');
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

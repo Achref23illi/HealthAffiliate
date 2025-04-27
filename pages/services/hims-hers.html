@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hims & Hers - Produits de santé personnalisés | HealthCompare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <meta name="description" content="Découvrez Hims & Hers - Des produits de santé personnalisés livrés directement chez vous. Solutions pour la santé sexuelle, les soins capillaires, la santé mentale et plus encore, avec suivi médical.">
+    
+    <!-- Custom page styles -->
+    <style>
+        :root {
+            --hims-color: #00A69C;
+            --hims-dark: #008C84;
+            --hims-light: #E6F7F6;
+            --hers-color: #F280AA;
+            --hers-dark: #E15F8F;
+            --hers-light: #FDEEF3;
+        }
+        
+        .dual-tone-hero {
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+            color: white;
+        }
+        
+        .dual-tone-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--hims-color);
+            z-index: 1;
+        }
+        
+        .dual-tone-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--hers-color);
+            z-index: 1;
+        }
+        
+        .dual-tone-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .service-logo img {
+            width: 120px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            background: white;
+            padding: 10px;
+        }
+        
+        .brand-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .brand-tab {
+            padding: 15px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        .brand-tab.hims {
+            background-color: rgba(0, 166, 156, 0.1);
+            color: var(--hims-color);
+        }
+        
+        .brand-tab.hers {
+            background-color: rgba(242, 128, 170, 0.1);
+            color: var(--hers-color);
+        }
+        
+        .brand-tab.active.hims {
+            background-color: var(--hims-color);
+            color: white;
+        }
+        
+        .brand-tab.active.hers {
+            background-color: var(--hers-color);
+            color: white;
+        }
+        
+        .brand-content {
+            display: none;
+            padding: 40px;
+            border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .brand-content.hims {
+            background-color: var(--hims-light);
+            border: 2px solid var(--hims-color);
+        }
+        
+        .brand-content.hers {
+            background-color: var(--hers-light);
+            border: 2px solid var(--hers-color);
+        }
+        
+        .brand-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .product-img {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
+        }
+        
+        .product-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .product-content p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            margin-top: auto;
+            font-size: 1.1rem;
+        }
+        
+        .hims-color {
+            color: var(--hims-color);
+        }
+        
+        .hers-color {
+            color: var(--hers-color);
+        }
+        
+        .how-it-works {
+            padding: 60px 0;
+            background-color: var(--light-background);
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step-number.hims {
+            background: var(--hims-color);
+        }
+        
+        .step-number.hers {
+            background: var(--hers-color);
+        }
+        
+        .benefits-section {
+            padding: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon.hims {
+            background-color: rgba(0, 166, 156, 0.1);
+            color: var(--hims-color);
+        }
+        
+        .benefit-icon.hers {
+            background-color: rgba(242, 128, 170, 0.1);
+            color: var(--hers-color);
+        }
+        
+        .benefit-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .testimonials-section {
+            padding: 60px 0;
+            background-color: var(--light-background);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial-card.hims::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: rgba(0, 166, 156, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-card.hers::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: rgba(242, 128, 170, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-rating {
+            color: #F59E0B;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .faq-section {
+            padding: 60px 0;
+        }
+        
+        .faq-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .faq-tab {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-tab.hims {
+            background-color: rgba(0, 166, 156, 0.1);
+            color: var(--hims-color);
+        }
+        
+        .faq-tab.hers {
+            background-color: rgba(242, 128, 170, 0.1);
+            color: var(--hers-color);
+        }
+        
+        .faq-tab.active.hims {
+            background-color: var(--hims-color);
+            color: white;
+        }
+        
+        .faq-tab.active.hers {
+            background-color: var(--hers-color);
+            color: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: none;
+        }
+        
+        .faq-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+        
+        .faq-question.hims::after {
+            color: var(--hims-color);
+        }
+        
+        .faq-question.hers::after {
+            color: var(--hers-color);
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        .cta-section {
+            position: relative;
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--hims-color);
+            z-index: 1;
+        }
+        
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--hers-color);
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        .btn-hims {
+            background-color: white;
+            color: var(--hims-color);
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hims:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .btn-hers {
+            background-color: white;
+            color: var(--hers-color);
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hers:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .service-logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-logo img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .brand-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .brand-tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                margin-bottom: 10px;
+                border-radius: var(--border-radius);
+            }
+            
+            .brand-content {
+                border-radius: var(--border-radius);
+                padding: 20px;
+            }
+            
+            .dual-tone-hero::before,
+            .dual-tone-hero::after,
+            .cta-section::before,
+            .cta-section::after {
+                width: 100%;
+                height: 50%;
+            }
+            
+            .dual-tone-hero::before,
+            .cta-section::before {
+                top: 0;
+            }
+            
+            .dual-tone-hero::after,
+            .cta-section::after {
+                top: 50%;
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>HealthCompare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Accueil</a></li>
+                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
+                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../services/index.html">Services</a></li>
+                    <li><a href="../about/index.html">À propos</a></li>
+                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="dual-tone-hero">
+        <div class="container">
+            <div class="service-logo">
+                <img src="../../images/hims-hers-placeholder.webp" alt="Logo Hims & Hers">
+                <h1>Hims & Hers</h1>
+            </div>
+            <p class="animate-slide-up">Produits de santé personnalisés livrés directement chez vous</p>
+            <div class="cta-buttons animate-slide-up delay-200">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter le site officiel</a>
+                <a href="#service-details" class="btn btn-outline">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-details" class="service-details">
+        <div class="container">
+            <h2 class="text-center">Des solutions de santé modernes et accessibles</h2>
+            <p class="section-intro">Hims & Hers propose des produits de santé personnalisés pour les hommes et les femmes, soutenus par des consultations médicales en ligne et livrés directement chez vous. Découvrez leur approche discrète et pratique pour prendre soin de votre santé.</p>
+            
+            <div class="brand-tabs">
+                <div class="brand-tab hims active" data-brand="hims">Hims - Pour Hommes</div>
+                <div class="brand-tab hers" data-brand="hers">Hers - Pour Femmes</div>
+            </div>
+            
+            <div class="brand-content hims active" id="hims-content">
+                <h3 class="hims-color">Solutions de santé pour hommes</h3>
+                <p>Hims propose une gamme complète de produits et services dédiés aux besoins spécifiques des hommes. De la santé sexuelle aux soins capillaires, en passant par la santé mentale, chaque solution est conçue pour être accessible, discrète et efficace.</p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hims-ed-placeholder.jpg" alt="Santé sexuelle">
+                        </div>
+                        <div class="product-content">
+                            <h3>Santé sexuelle</h3>
+                            <p>Traitements pour la dysfonction érectile, l'éjaculation précoce et autres préoccupations sexuelles, après consultation avec un médecin en ligne.</p>
+                            <div class="product-price hims-color">À partir de 20€/mois</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hims-hair-placeholder.jpg" alt="Soins capillaires">
+                        </div>
+                        <div class="product-content">
+                            <h3>Santé capillaire</h3>
+                            <p>Solutions contre la chute des cheveux, comprenant des traitements oraux et topiques cliniquement prouvés pour favoriser la repousse.</p>
+                            <div class="product-price hims-color">À partir de 25€/mois</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hims-mental-placeholder.jpg" alt="Santé mentale">
+                        </div>
+                        <div class="product-content">
+                            <h3>Santé mentale</h3>
+                            <p>Accès à des consultations psychiatriques et à des traitements pour l'anxiété et la dépression, avec suivi personnalisé.</p>
+                            <div class="product-price hims-color">À partir de 40€/mois</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hims-skincare-placeholder.jpg" alt="Soins de la peau">
+                        </div>
+                        <div class="product-content">
+                            <h3>Soins de la peau</h3>
+                            <p>Produits anti-acné, anti-âge et autres traitements dermatologiques pour une peau saine, formulés spécifiquement pour les hommes.</p>
+                            <div class="product-price hims-color">À partir de 18€/mois</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-primary" rel="sponsored">Explorer les produits Hims</a>
+                </div>
+            </div>
+            
+            <div class="brand-content hers" id="hers-content">
+                <h3 class="hers-color">Solutions de santé pour femmes</h3>
+                <p>Hers offre une variété de produits et services conçus pour répondre aux besoins spécifiques des femmes. Des soins capillaires aux solutions pour la santé intime, chaque produit est développé avec une approche personnalisée et discrète.</p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hers-birthcontrol-placeholder.jpg" alt="Contraception">
+                        </div>
+                        <div class="product-content">
+                            <h3>Contraception</h3>
+                            <p>Accès à la contraception orale prescrite en ligne et livrée discrètement chez vous, avec suivi médical régulier.</p>
+                            <div class="product-price hers-color">À partir de 15€/mois</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hers-hair-placeholder.jpg" alt="Soins capillaires">
+                        </div>
+                        <div class="product-content">
+                            <h3>Santé capillaire</h3>
+                            <p>Traitements contre la chute des cheveux et solutions pour favoriser la pousse et la vitalité des cheveux.</p>
+                            <div class="product-price hers-color">À partir de 22€/mois</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hers-mental-placeholder.jpg" alt="Santé mentale">
+                        </div>
+                        <div class="product-content">
+                            <h3>Santé mentale</h3>
+                            <p>Services de thérapie en ligne et traitements pour l'anxiété et la dépression, adaptés aux besoins spécifiques des femmes.</p>
+                            <div class="product-price hers-color">À partir de 40€/mois</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="../../images/hers-skincare-placeholder.jpg" alt="Soins de la peau">
+                        </div>
+                        <div class="product-content">
+                            <h3>Soins de la peau</h3>
+                            <p>Produits anti-acné, anti-âge et solutions dermatologiques formulés spécifiquement pour les besoins de la peau féminine.</p>
+                            <div class="product-price hers-color">À partir de 20€/mois</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-primary" rel="sponsored">Explorer les produits Hers</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="text-center">Comment ça fonctionne</h2>
+            <p class="section-intro">Hims & Hers simplifie l'accès aux soins de santé personnalisés en seulement quelques étapes simples.</p>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number hims">1</div>
+                    <h3>Consultation en ligne</h3>
+                    <p>Complétez un questionnaire médical détaillé, qui sera examiné par un professionnel de santé qualifié qui pourra vous prescrire un traitement si approprié.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number hers">2</div>
+                    <h3>Prescription personnalisée</h3>
+                    <p>Un médecin examine votre cas et, si cliniquement approprié, prescrit un traitement personnalisé selon vos besoins spécifiques.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number hims">3</div>
+                    <h3>Livraison discrète</h3>
+                    <p>Recevez vos produits directement chez vous dans un emballage discret, généralement dans un délai de 2 à 3 jours ouvrables.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number hers">4</div>
+                    <h3>Suivi continu</h3>
+                    <p>Bénéficiez d'un accès continu à votre médecin pour toute question ou ajustement de traitement, avec des renouvellements automatiques pour plus de commodité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="text-center">Avantages de Hims & Hers</h2>
+            <p class="section-intro">Découvrez pourquoi de plus en plus de personnes choisissent Hims & Hers pour leurs besoins de santé.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon hims">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Médecins qualifiés</h3>
+                    <p>Tous les produits de prescription sont approuvés par des médecins certifiés qui évaluent votre éligibilité et prescrivent uniquement les traitements appropriés.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon hers">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    </div>
+                    <h3>Personnalisation</h3>
+                    <p>Chaque traitement est adapté à vos besoins spécifiques, avec des ajustements possibles au fil du temps en fonction de vos résultats et de vos retours.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon hims">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h3>Gain de temps</h3>
+                    <p>Évitez les rendez-vous physiques et les files d'attente en pharmacie grâce à un processus entièrement en ligne et des livraisons à domicile.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon hers">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Discrétion</h3>
+                    <p>Tous les produits sont livrés dans des emballages neutres, sans mention de leur contenu, pour préserver votre confidentialité.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon hims">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-0 4v2"></path><polyline points="22 17 23 18 19 22"></polyline><path d="M2 13.8V9a2 2 0 0 1 2-2h6"></path><polyline points="7.5 2 12 2 12 7"></polyline><path d="M12 2l-2.1 2.8"></path></svg>
+                    </div>
+                    <h3>Abonnement flexible</h3>
+                    <p>Les plans d'abonnement peuvent être modifiés, mis en pause ou annulés à tout moment, sans engagement à long terme ni frais cachés.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon hers">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3>Accessibilité</h3>
+                    <p>Des consultations médicales et des produits de qualité à des prix compétitifs, souvent moins chers que les options traditionnelles et sans frais de consultation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="text-center">Témoignages de clients</h2>
+            <p class="section-intro">Découvrez les expériences de personnes qui ont utilisé les produits Hims & Hers pour améliorer leur santé et leur bien-être.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card hims">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"Après des années d'hésitation concernant ma perte de cheveux, j'ai finalement essayé le traitement capillaire de Hims. Le processus était simple, discret et après 4 mois, j'ai commencé à voir une réelle différence. Le suivi régulier avec mon médecin a été très rassurant."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial-male-placeholder.jpg" alt="Pierre D.">
+                        <div>
+                            <strong>Pierre D.</strong>
+                            <span>Utilisateur Hims depuis 1 an</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card hers">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"Je suis impressionnée par la qualité du service Hers. J'utilise leurs produits pour l'acné et la contraception. Le fait de pouvoir gérer ces deux aspects de ma santé au même endroit, avec des consultations médicales régulières et des livraisons à domicile, a simplifié ma vie."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial-female-placeholder.jpg" alt="Sarah M.">
+                        <div>
+                            <strong>Sarah M.</strong>
+                            <span>Utilisatrice Hers depuis 6 mois</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card hims">
+                    <div class="testimonial-rating">★★★★☆</div>
+                    <p>"J'étais sceptique au début, mais le service de santé mentale de Hims m'a vraiment aidé pendant une période difficile. Les consultations psychiatriques en ligne étaient pratiques et le traitement prescrit a été efficace. Ma seule critique est que j'aurais aimé plus d'options de créneaux horaires pour les rendez-vous."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial-male2-placeholder.jpg" alt="Lucas T.">
+                        <div>
+                            <strong>Lucas T.</strong>
+                            <span>Utilisateur Hims depuis 8 mois</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center">Questions fréquentes</h2>
+            <p class="section-intro">Trouvez les réponses aux questions les plus courantes sur Hims & Hers.</p>
+            
+            <div class="faq-tabs">
+                <div class="faq-tab hims active" data-faq="hims">Questions sur Hims</div>
+                <div class="faq-tab hers" data-faq="hers">Questions sur Hers</div>
+            </div>
+            
+            <div class="faq-container active" id="hims-faq">
+                <div class="faq-item">
+                    <div class="faq-question hims">Les médicaments Hims sont-ils légitimes et sûrs ?</div>
+                    <div class="faq-answer">
+                        <p>Oui, tous les médicaments disponibles via Hims sont approuvés par les autorités sanitaires et sont identiques à ceux que vous recevriez dans une pharmacie traditionnelle. Chaque traitement est prescrit par un médecin certifié après évaluation de votre situation médicale. Les médicaments sont fournis par des pharmacies agréées qui respectent les mêmes normes strictes que toute autre pharmacie.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hims">Comment fonctionne la consultation médicale en ligne ?</div>
+                    <div class="faq-answer">
+                        <p>Le processus commence par un questionnaire médical détaillé qui recueille des informations sur votre santé, vos symptômes et vos antécédents médicaux. Ces informations sont examinées par un médecin certifié qui évalue si un traitement est approprié pour vous. Dans certains cas, le médecin peut demander des informations supplémentaires ou une consultation vidéo. Si un traitement est prescrit, l'ordonnance est transmise à une pharmacie partenaire qui prépare et expédie votre traitement.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hims">Puis-je utiliser mon assurance santé avec Hims ?</div>
+                    <div class="faq-answer">
+                        <p>Actuellement, Hims fonctionne principalement sur un modèle de paiement direct sans passer par les assurances, ce qui permet de maintenir des prix bas et transparents. Cependant, certains assureurs peuvent rembourser partiellement les médicaments achetés via Hims. Dans ce cas, Hims peut vous fournir une facture détaillée que vous pouvez soumettre à votre assurance pour un remboursement potentiel. Nous vous recommandons de contacter directement votre assureur pour connaître votre couverture spécifique.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hims">Comment fonctionnent les abonnements Hims ?</div>
+                    <div class="faq-answer">
+                        <p>Les abonnements Hims sont flexibles et conçus pour votre commodité. Après votre première commande, vous recevrez automatiquement des recharges à intervalles réguliers (généralement mensuels ou trimestriels selon le produit). Vous pouvez facilement gérer votre abonnement en ligne, en modifiant la fréquence, en mettant en pause ou en annulant à tout moment sans pénalité. Des rappels sont envoyés avant chaque expédition, vous donnant l'opportunité d'ajuster votre commande si nécessaire.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hims">Combien de temps faut-il pour voir des résultats avec les traitements Hims ?</div>
+                    <div class="faq-answer">
+                        <p>Le délai d'efficacité varie selon le traitement. Les médicaments pour la dysfonction érectile agissent généralement en 30-60 minutes et sont pris au besoin. Les traitements contre la chute des cheveux nécessitent typiquement 3-4 mois d'utilisation régulière avant d'observer des résultats visibles, et les effets continuent de s'améliorer avec l'utilisation continue. Les traitements pour la santé mentale peuvent prendre 4-6 semaines pour atteindre leur pleine efficacité. Votre médecin Hims vous fournira des attentes spécifiques pour votre traitement particulier.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-container" id="hers-faq">
+                <div class="faq-item">
+                    <div class="faq-question hers">Comment obtenir une prescription de contraception via Hers ?</div>
+                    <div class="faq-answer">
+                        <p>Pour obtenir une contraception via Hers, vous commencez par remplir un questionnaire médical en ligne détaillant vos antécédents de santé, préférences contraceptives et toute condition médicale pertinente. Un médecin certifié examine ces informations et, si approprié, prescrit la contraception qui convient le mieux à votre situation. Dans certains cas, des informations supplémentaires ou une consultation vidéo peuvent être nécessaires. Une fois approuvée, votre contraception est expédiée discrètement à votre domicile, généralement avec des renouvellements automatiques pour éviter toute interruption.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hers">Les produits de soins de la peau Hers sont-ils adaptés à tous les types de peau ?</div>
+                    <div class="faq-answer">
+                        <p>Hers propose une gamme de produits de soins de la peau formulés pour différents types de peau et préoccupations spécifiques. Lors de votre consultation, vous serez guidée pour choisir les produits les plus adaptés à votre type de peau (normale, sèche, grasse, mixte ou sensible) et à vos problèmes spécifiques comme l'acné, l'hyperpigmentation ou le vieillissement. Si vous avez une condition dermatologique complexe ou des allergies connues, le médecin pourra vous recommander des formulations spécifiques ou vous conseiller de consulter un dermatologue en personne pour une évaluation plus approfondie.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hers">Comment fonctionne le service de santé mentale de Hers ?</div>
+                    <div class="faq-answer">
+                        <p>Le service de santé mentale de Hers comprend deux volets principaux : la thérapie et les traitements médicamenteux. Pour la thérapie, vous êtes mise en relation avec un thérapeute agréé pour des sessions en ligne régulières. Pour les traitements médicamenteux contre l'anxiété ou la dépression, vous complétez une évaluation en ligne qui est examinée par un psychiatre. Si un traitement est recommandé, il vous est prescrit et livré régulièrement. Un suivi est assuré pour ajuster le traitement si nécessaire. Les deux options peuvent être utilisées séparément ou de manière complémentaire selon vos besoins.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hers">Peut-on annuler un abonnement Hers à tout moment ?</div>
+                    <div class="faq-answer">
+                        <p>Oui, les abonnements Hers sont flexibles et peuvent être modifiés ou annulés à tout moment sans frais de résiliation. Vous pouvez gérer votre abonnement directement depuis votre compte en ligne, où vous pourrez changer la fréquence des livraisons, mettre en pause temporairement ou annuler complètement. Pour garantir que les modifications soient prises en compte, il est recommandé de les effectuer au moins 48 heures avant la date prévue de traitement de votre prochaine commande, qui est généralement indiquée dans votre compte.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question hers">Les traitements capillaires Hers fonctionnent-ils réellement ?</div>
+                    <div class="faq-answer">
+                        <p>Les traitements capillaires Hers contiennent des ingrédients cliniquement prouvés comme le minoxidil, qui est approuvé pour stimuler la repousse des cheveux chez les femmes. L'efficacité peut varier selon les individus et dépend de plusieurs facteurs, notamment le type de perte de cheveux, le stade de la perte et la constance dans l'utilisation du traitement. Des études cliniques montrent que la majorité des utilisatrices régulières constatent une diminution de la chute et/ou une amélioration de la densité capillaire après 3-6 mois d'utilisation continue. Pour des résultats optimaux, il est important de suivre les instructions et d'utiliser le produit quotidiennement sur le long terme.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Prêt à prendre soin de votre santé différemment ?</h2>
+            <p class="mb-4">Rejoignez les millions d'utilisateurs satisfaits de Hims & Hers et découvrez des solutions de santé modernes, discrètes et efficaces.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-hims" rel="sponsored">Visiter Hims</a>
+                <a href="#" class="btn btn-hers ml-3" rel="sponsored">Visiter Hers</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>HealthCompare</h2>
+                    <p>Votre guide pour des choix de santé éclairés</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">À propos</a></li>
+                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services affiliés</h3>
+                    <ul>
+                        <li><a href="teladoc.html" rel="sponsored">Teladoc Health</a></li>
+                        <li><a href="sesamecare.html" rel="sponsored">Sesame Care</a></li>
+                        <li><a href="everlywell.html" rel="sponsored">Everlywell</a></li>
+                        <li><a href="letsgetchecked.html" rel="sponsored">LetsGetChecked</a></li>
+                        <li><a href="hims-hers.html" rel="sponsored">Hims / Hers</a></li>
+                        <li><a href="smiledirectclub.html" rel="sponsored">SmileDirectClub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: info@healthcompare.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <span class="visually-hidden">Facebook</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <span class="visually-hidden">Twitter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <span class="visually-hidden">Instagram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="affiliate-disclosure" role="note">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/affiliate-tracking.js"></script>
+    <script src="../../js/analytics.js"></script>
+    <script>
+        // Tab functionality for brands
+        document.addEventListener('DOMContentLoaded', function() {
+            const brandTabs = document.querySelectorAll('.brand-tab');
+            const brandContents = document.querySelectorAll('.brand-content');
+            
+            brandTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const brand = tab.getAttribute('data-brand');
+                    
+                    // Deactivate all tabs and contents
+                    brandTabs.forEach(t => t.classList.remove('active'));
+                    brandContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Activate selected tab and content
+                    tab.classList.add('active');
+                    document.getElementById(`${brand}-content`).classList.add('active');
+                });
+            });
+            
+            // FAQ functionality
+            const faqTabs = document.querySelectorAll('.faq-tab');
+            const faqContainers = document.querySelectorAll('.faq-container');
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const faq = tab.getAttribute('data-faq');
+                    
+                    // Deactivate all tabs and containers
+                    faqTabs.forEach(t => t.classList.remove('active'));
+                    faqContainers.forEach(c => c.classList.remove('active'));
+                    
+                    // Activate selected tab and container
+                    tab.classList.add('active');
+                    document.getElementById(`${faq}-faq`).classList.add('active');
+                });
+            });
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

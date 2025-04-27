@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHerb - Vaste sélection de suppléments et produits naturels | HealthCompare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <meta name="description" content="Découvrez iHerb - Une vaste sélection de suppléments, vitamines, produits de beauté naturels et aliments sains à prix compétitifs et avec livraison internationale.">
+    
+    <!-- Custom page styles -->
+    <style>
+        :root {
+            --iherb-green: #4FB845;
+            --iherb-dark-green: #3C8C35;
+            --iherb-light-green: #E7F7E6;
+            --iherb-yellow: #FFD83D;
+            --iherb-light-yellow: #FFF8E0;
+        }
+        
+        .service-hero {
+            background: linear-gradient(135deg, var(--iherb-green), var(--iherb-dark-green));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../images/hero-pattern.svg');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .service-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .service-logo img {
+            width: 120px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            background: white;
+            padding: 10px;
+        }
+        
+        .service-details {
+            padding: 60px 0;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .category-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-img img {
+            transform: scale(1.05);
+        }
+        
+        .category-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--iherb-dark-green);
+        }
+        
+        .category-content p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .browse-link {
+            color: var(--iherb-green);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: auto;
+            transition: color 0.3s ease;
+        }
+        
+        .browse-link:hover {
+            color: var(--iherb-dark-green);
+        }
+        
+        .browse-link svg {
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .browse-link:hover svg {
+            transform: translateX(3px);
+        }
+        
+        .benefits-section {
+            background-color: var(--iherb-light-green);
+            padding: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--iherb-light-green);
+            color: var(--iherb-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .benefit-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .popular-brands {
+            padding: 60px 0;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .brand-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .brand-img {
+            max-width: 80%;
+            max-height: 60px;
+            margin-bottom: 10px;
+        }
+        
+        .brand-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .shipping-info {
+            background-color: var(--iherb-light-yellow);
+            padding: 60px 0;
+        }
+        
+        .shipping-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .shipping-table th {
+            background: var(--iherb-green);
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+        
+        .shipping-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: white;
+        }
+        
+        .shipping-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .shipping-table tr:nth-child(even) td {
+            background-color: var(--iherb-light-green);
+        }
+        
+        .loyalty-program {
+            padding: 60px 0;
+        }
+        
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .tier-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--iherb-green);
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tier-card:nth-child(2) {
+            border-top-color: var(--iherb-yellow);
+        }
+        
+        .tier-card:nth-child(3) {
+            border-top-color: var(--iherb-dark-green);
+        }
+        
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--iherb-dark-green);
+        }
+        
+        .tier-description {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .tier-benefits {
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .tier-benefits li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .tier-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--iherb-green);
+            font-weight: bold;
+        }
+        
+        .app-promo {
+            background: linear-gradient(135deg, var(--iherb-green), var(--iherb-dark-green));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .app-promo h2 {
+            color: white;
+        }
+        
+        .app-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .app-button {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            color: var(--text-color);
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .app-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .app-button img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .testimonials-section {
+            padding: 60px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: rgba(79, 184, 69, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-rating {
+            color: var(--iherb-yellow);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .faq-section {
+            padding: 60px 0;
+            background-color: var(--iherb-light-green);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--iherb-green);
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        .cta-section {
+            background: var(--iherb-green);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .service-logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-logo img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .shipping-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>HealthCompare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Accueil</a></li>
+                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
+                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../services/index.html">Services</a></li>
+                    <li><a href="../about/index.html">À propos</a></li>
+                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-logo">
+                <img src="../../images/iherb-placeholder.png" alt="Logo iHerb">
+                <h1>iHerb</h1>
+            </div>
+            <p class="animate-slide-up">Vaste sélection de suppléments et produits naturels à prix compétitifs</p>
+            <div class="cta-buttons animate-slide-up delay-200">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter le site officiel</a>
+                <a href="#service-details" class="btn btn-outline">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-details" class="service-details">
+        <div class="container">
+            <h2 class="text-center">Votre destination en ligne pour des produits naturels de qualité</h2>
+            <p class="section-intro">Fondé en 1996, iHerb est devenu l'un des plus grands détaillants en ligne de produits de santé naturels. Avec plus de 30 000 produits et 1 600 marques, iHerb offre une vaste sélection de suppléments, vitamines, produits de beauté naturels, aliments sains et produits pour bébés - le tout à des prix compétitifs et avec livraison internationale.</p>
+            
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="../../images/iherb-vitamins-placeholder.jpg" alt="Vitamines et suppléments">
+                    </div>
+                    <div class="category-content">
+                        <h3>Vitamines et suppléments</h3>
+                        <p>Large sélection de vitamines, minéraux, oméga-3, probiotiques et autres suppléments de qualité pour soutenir votre santé globale.</p>
+                        <a href="#" class="browse-link" rel="sponsored">Découvrir cette catégorie
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="../../images/iherb-beauty-placeholder.jpg" alt="Beauté naturelle">
+                    </div>
+                    <div class="category-content">
+                        <h3>Beauté naturelle</h3>
+                        <p>Produits de soins personnels, cosmétiques et soins de la peau formulés avec des ingrédients naturels, sans produits chimiques agressifs.</p>
+                        <a href="#" class="browse-link" rel="sponsored">Découvrir cette catégorie
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="../../images/iherb-food-placeholder.jpg" alt="Aliments sains">
+                    </div>
+                    <div class="category-content">
+                        <h3>Aliments sains</h3>
+                        <p>Superaliments, snacks, thés, alternatives aux produits laitiers et autres aliments nutritifs pour soutenir votre mode de vie sain.</p>
+                        <a href="#" class="browse-link" rel="sponsored">Découvrir cette catégorie
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="../../images/iherb-baby-placeholder.jpg" alt="Produits pour bébés">
+                    </div>
+                    <div class="category-content">
+                        <h3>Produits pour bébés</h3>
+                        <p>Formules pour bébés, aliments, couches, produits de bain et autres essentiels naturels pour prendre soin de votre bébé en toute sécurité.</p>
+                        <a href="#" class="browse-link" rel="sponsored">Découvrir cette catégorie
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="../../images/iherb-sports-placeholder.jpg" alt="Nutrition sportive">
+                    </div>
+                    <div class="category-content">
+                        <h3>Nutrition sportive</h3>
+                        <p>Protéines, pré-entraînement, BCAA et autres produits spécialement formulés pour soutenir votre performance sportive et récupération.</p>
+                        <a href="#" class="browse-link" rel="sponsored">Découvrir cette catégorie
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="../../images/iherb-herbs-placeholder.jpg" alt="Herbes et homéopathie">
+                    </div>
+                    <div class="category-content">
+                        <h3>Herbes et homéopathie</h3>
+                        <p>Vaste sélection d'herbes, de remèdes homéopathiques et de produits de médecine traditionnelle pour des approches de santé alternatives.</p>
+                        <a href="#" class="browse-link" rel="sponsored">Découvrir cette catégorie
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="text-center">Pourquoi choisir iHerb ?</h2>
+            <p class="section-intro">Découvrez les avantages qui font d'iHerb une référence mondiale pour l'achat de produits naturels en ligne.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Qualité garantie</h3>
+                    <p>Tous les produits sont achetés directement auprès des fabricants ou des distributeurs autorisés, garantissant leur authenticité et leur qualité.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path></svg>
+                    </div>
+                    <h3>Avis vérifiés</h3>
+                    <p>Plus de 40 millions d'avis clients authentiques pour vous aider à faire des choix éclairés sur vos achats.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0H5m14 0h2m-2 0h-5m-9 0H3m2 0h5"></path></svg>
+                    </div>
+                    <h3>Vaste sélection</h3>
+                    <p>Plus de 30 000 produits parmi 1 600 marques différentes, offrant un choix incomparable pour tous vos besoins de santé naturelle.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+                    </div>
+                    <h3>Prix compétitifs</h3>
+                    <p>Économisez jusqu'à 30% par rapport aux prix en magasin, avec des promotions régulières et des offres spéciales pour encore plus d'économies.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h3>Livraison mondiale</h3>
+                    <p>Expédition dans plus de 150 pays, avec des centres de distribution stratégiquement situés pour une livraison rapide et efficace.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 11h.01M11 15h.01M16 16h.01M11 11h.01"></path><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                    </div>
+                    <h3>Programme de fidélité</h3>
+                    <p>Gagnez des récompenses avec chaque achat grâce au programme de fidélité iHerb Rewards, avec des crédits et des offres exclusives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="popular-brands">
+        <div class="container">
+            <h2 class="text-center">Marques populaires disponibles sur iHerb</h2>
+            <p class="section-intro">iHerb propose une sélection minutieuse des meilleures marques de produits naturels du monde entier.</p>
+            
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <img src="../../images/brand-california-gold-placeholder.png" alt="California Gold Nutrition" class="brand-img">
+                    <div class="brand-name">California Gold Nutrition</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-now-foods-placeholder.png" alt="Now Foods" class="brand-img">
+                    <div class="brand-name">Now Foods</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-solgar-placeholder.png" alt="Solgar" class="brand-img">
+                    <div class="brand-name">Solgar</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-life-extension-placeholder.png" alt="Life Extension" class="brand-img">
+                    <div class="brand-name">Life Extension</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-garden-of-life-placeholder.png" alt="Garden of Life" class="brand-img">
+                    <div class="brand-name">Garden of Life</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-doctors-best-placeholder.png" alt="Doctor's Best" class="brand-img">
+                    <div class="brand-name">Doctor's Best</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-avalon-organics-placeholder.png" alt="Avalon Organics" class="brand-img">
+                    <div class="brand-name">Avalon Organics</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-badger-placeholder.png" alt="Badger" class="brand-img">
+                    <div class="brand-name">Badger</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-andalou-naturals-placeholder.png" alt="Andalou Naturals" class="brand-img">
+                    <div class="brand-name">Andalou Naturals</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-nutiva-placeholder.png" alt="Nutiva" class="brand-img">
+                    <div class="brand-name">Nutiva</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-nordic-naturals-placeholder.png" alt="Nordic Naturals" class="brand-img">
+                    <div class="brand-name">Nordic Naturals</div>
+                </div>
+                
+                <div class="brand-card">
+                    <img src="../../images/brand-more-placeholder.png" alt="Et bien plus encore" class="brand-img">
+                    <div class="brand-name">Et bien plus encore</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="shipping-info">
+        <div class="container">
+            <h2 class="text-center">Options d'expédition internationale</h2>
+            <p class="section-intro">iHerb propose plusieurs options d'expédition pour la France et l'Europe, avec des options de livraison rapide et économique.</p>
+            
+            <table class="shipping-table">
+                <thead>
+                    <tr>
+                        <th>Méthode d'expédition</th>
+                        <th>Délai estimé</th>
+                        <th>Frais pour la France</th>
+                        <th>Livraison gratuite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Économique</td>
+                        <td>7-10 jours ouvrables</td>
+                        <td>4€ - 8€</td>
+                        <td>Pour les commandes > 40€</td>
+                    </tr>
+                    <tr>
+                        <td>Standard</td>
+                        <td>5-8 jours ouvrables</td>
+                        <td>8€ - 12€</td>
+                        <td>Pour les commandes > 80€</td>
+                    </tr>
+                    <tr>
+                        <td>Express</td>
+                        <td>2-3 jours ouvrables</td>
+                        <td>15€ - 25€</td>
+                        <td>Pour les commandes > 150€</td>
+                    </tr>
+                    <tr>
+                        <td>K-Packet</td>
+                        <td>15-30 jours ouvrables</td>
+                        <td>2€ - 3,5€</td>
+                        <td>Non disponible</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="mt-3 text-center"><small>* Les frais et délais d'expédition peuvent varier en fonction du poids, des dimensions et de la destination de la commande. Veuillez consulter le site officiel d'iHerb pour les informations les plus récentes.</small></p>
+            
+            <div class="mt-4 text-center">
+                <h3>Informations importantes sur les douanes</h3>
+                <p>Les commandes internationales peuvent être soumises à des droits de douane et taxes locales, qui sont à la charge du client. Pour les commandes vers l'Union Européenne, iHerb collecte la TVA lors de l'achat pour la plupart des commandes, ce qui simplifie le processus de dédouanement.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="loyalty-program">
+        <div class="container">
+            <h2 class="text-center">Programme de fidélité iHerb Rewards</h2>
+            <p class="section-intro">Gagnez des récompenses sur chaque achat grâce au programme de fidélité en plusieurs niveaux d'iHerb.</p>
+            
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <div class="tier-name">Silver</div>
+                    <div class="tier-description">Pour tous les clients</div>
+                    <ul class="tier-benefits">
+                        <li>5% de crédits de récompense sur tous les achats</li>
+                        <li>Codes de parrainage pour partager avec des amis</li>
+                        <li>5% de commission sur les achats de vos filleuls</li>
+                        <li>Accès aux ventes et promotions régulières</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-name">Gold</div>
+                    <div class="tier-description">Après 5 commandes ou 200€ d'achats</div>
+                    <ul class="tier-benefits">
+                        <li>Tous les avantages Silver</li>
+                        <li>7% de crédits de récompense sur tous les achats</li>
+                        <li>10% de commission sur les achats de vos filleuls</li>
+                        <li>Accès prioritaire aux nouvelles offres</li>
+                        <li>Promotions exclusives Gold</li>
+                    </ul>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-name">Platinum</div>
+                    <div class="tier-description">Après 10 commandes ou 500€ d'achats</div>
+                    <ul class="tier-benefits">
+                        <li>Tous les avantages Gold</li>
+                        <li>10% de crédits de récompense sur tous les achats</li>
+                        <li>15% de commission sur les achats de vos filleuls</li>
+                        <li>Service client prioritaire</li>
+                        <li>Accès aux offres exclusives VIP</li>
+                        <li>Cadeaux surprises pour les membres Platinum</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="app-promo">
+        <div class="container">
+            <h2>Téléchargez l'application iHerb</h2>
+            <p>Faites vos achats en déplacement avec l'application mobile iHerb. Profitez d'une expérience d'achat optimisée, d'offres exclusives et de la possibilité de scanner des produits en magasin pour comparer les prix.</p>
+            
+            <div class="app-buttons">
+                <a href="#" class="app-button" rel="sponsored">
+                    <img src="../../images/google-play-logo-placeholder.png" alt="Google Play">
+                    <span>Google Play</span>
+                </a>
+                <a href="#" class="app-button" rel="sponsored">
+                    <img src="../../images/app-store-logo-placeholder.png" alt="App Store">
+                    <span>App Store</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="text-center">Témoignages de clients</h2>
+            <p class="section-intro">Découvrez ce que nos clients disent de leur expérience avec iHerb.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"Je commande sur iHerb depuis plus de 5 ans et je n'ai jamais été déçue. Les prix sont imbattables, la livraison en France est rapide et le choix de produits est incroyable. J'adore particulièrement leur marque California Gold Nutrition qui offre un excellent rapport qualité-prix."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial-female-placeholder.jpg" alt="Isabelle L.">
+                        <div>
+                            <strong>Isabelle L.</strong>
+                            <span>Cliente depuis 5 ans</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"En tant que nutritionniste, je recommande souvent iHerb à mes clients. La qualité des suppléments est excellente et les informations détaillées sur les produits permettent de faire des choix éclairés. Le service client est également très réactif quand j'ai eu besoin d'aide pour une commande."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial-male-placeholder.jpg" alt="Marc D.">
+                        <div>
+                            <strong>Marc D.</strong>
+                            <span>Nutritionniste</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★☆</div>
+                    <p>"iHerb est ma source principale pour les produits de beauté naturels et bio. Je trouve des marques américaines et coréennes qu'on ne trouve pas facilement en France. Les prix sont généralement 20-30% moins chers qu'en boutique, même avec les frais de port. Seul bémol : parfois les délais de livraison peuvent être un peu longs avec l'option économique."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial-female2-placeholder.jpg" alt="Julie M.">
+                        <div>
+                            <strong>Julie M.</strong>
+                            <span>Cliente régulière</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center">Questions fréquentes</h2>
+            <p class="section-intro">Trouvez les réponses aux questions les plus courantes sur iHerb.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Les produits iHerb sont-ils authentiques ?</div>
+                    <div class="faq-answer">
+                        <p>Oui, tous les produits vendus sur iHerb sont 100% authentiques. iHerb s'approvisionne directement auprès des fabricants ou de leurs distributeurs autorisés, garantissant ainsi l'authenticité de tous les produits. Le site maintient également des normes strictes de contrôle qualité et dispose de centres de distribution climatisés et contrôlés pour assurer que tous les produits restent frais et efficaces. En cas de doute sur l'authenticité d'un produit, le service client d'iHerb est disponible pour vous aider.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Comment fonctionnent les frais de douane pour les livraisons en France ?</div>
+                    <div class="faq-answer">
+                        <p>Depuis le 1er juillet 2021, conformément aux nouvelles réglementations de l'UE, iHerb collecte la TVA sur la plupart des commandes à destination de la France au moment de l'achat. Cela simplifie le processus de dédouanement et évite généralement des frais supplémentaires à la livraison. Pour les commandes dépassant certaines valeurs (généralement 150€), des droits de douane supplémentaires peuvent s'appliquer et être collectés par le transporteur à la livraison. iHerb indique clairement le montant de TVA perçu sur votre facture, et les prix affichés sur le site incluent déjà la TVA applicable.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Quelles sont les options de paiement acceptées ?</div>
+                    <div class="faq-answer">
+                        <p>iHerb accepte une large gamme d'options de paiement pour faciliter vos achats internationaux. Celles-ci incluent les principales cartes de crédit et débit (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, et de nombreuses options de paiement locales comme Bancontact, iDEAL, et Sofort pour les clients européens. Tous les paiements sont traités via des connexions sécurisées avec cryptage SSL pour protéger vos informations financières. iHerb propose également la conversion de devise en temps réel, vous permettant de voir et de payer dans votre devise locale (EUR pour la France).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Comment puis-je suivre ma commande ?</div>
+                    <div class="faq-answer">
+                        <p>Une fois votre commande expédiée, iHerb vous envoie un email de confirmation contenant un numéro de suivi et un lien vers le site du transporteur. Vous pouvez également suivre votre commande à tout moment en vous connectant à votre compte iHerb et en accédant à la section "Mes commandes". Pour les expéditions internationales, plusieurs transporteurs peuvent être impliqués dans le processus de livraison (par exemple, DHL puis La Poste pour la France), et le numéro de suivi fonctionne généralement pour l'ensemble du parcours. Si vous rencontrez des difficultés à suivre votre colis, le service client d'iHerb est disponible 24/7 et peut vous fournir des informations mises à jour sur l'état de votre livraison.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Quelle est la politique de retour d'iHerb ?</div>
+                    <div class="faq-answer">
+                        <p>iHerb offre une garantie de satisfaction de 90 jours sur la plupart des produits. Si vous n'êtes pas satisfait de votre achat pour une raison quelconque, vous pouvez retourner le produit dans les 90 jours suivant la date d'achat pour un remboursement ou un échange. Pour les commandes internationales, iHerb rembourse jusqu'à 20€ des frais de retour pour les produits défectueux ou incorrects. Pour initier un retour, connectez-vous à votre compte, accédez à la commande concernée et suivez les instructions de retour. Notez que certains articles comme les aliments périssables, les produits scellés pour des raisons d'hygiène qui ont été ouverts, ou les articles en promotion spéciale peuvent ne pas être éligibles aux retours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Comment utiliser les crédits de récompense iHerb ?</div>
+                    <div class="faq-answer">
+                        <p>Les crédits de récompense iHerb sont accumulés automatiquement dans votre compte à chaque achat éligible, à un taux qui dépend de votre niveau de fidélité (Silver, Gold ou Platinum). Ces crédits peuvent être appliqués à vos futurs achats lors du processus de paiement. Pour utiliser vos crédits, il vous suffit de les sélectionner comme méthode de paiement partielle ou complète lors du checkout. Les crédits de récompense iHerb sont valables pendant une période de 90 jours à compter de la date à laquelle ils ont été émis. Vous pouvez consulter votre solde de crédits actuel et leur date d'expiration dans la section "Rewards" de votre compte.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Découvrez iHerb dès aujourd'hui</h2>
+            <p class="mb-4">Profitez de 5% de réduction sur votre première commande</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter iHerb</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>HealthCompare</h2>
+                    <p>Votre guide pour des choix de santé éclairés</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">À propos</a></li>
+                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services affiliés</h3>
+                    <ul>
+                        <li><a href="teladoc.html" rel="sponsored">Teladoc Health</a></li>
+                        <li><a href="sesamecare.html" rel="sponsored">Sesame Care</a></li>
+                        <li><a href="everlywell.html" rel="sponsored">Everlywell</a></li>
+                        <li><a href="letsgetchecked.html" rel="sponsored">LetsGetChecked</a></li>
+                        <li><a href="hims-hers.html" rel="sponsored">Hims / Hers</a></li>
+                        <li><a href="smiledirectclub.html" rel="sponsored">SmileDirectClub</a></li>
+                        <li><a href="ritual.html" rel="sponsored">Ritual</a></li>
+                        <li><a href="quip.html" rel="sponsored">Quip</a></li>
+                        <li><a href="iherb.html" rel="sponsored">iHerb</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: info@healthcompare.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <span class="visually-hidden">Facebook</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <span class="visually-hidden">Twitter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <span class="visually-hidden">Instagram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="affiliate-disclosure" role="note">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/affiliate-tracking.js"></script>
+    <script src="../../js/analytics.js"></script>
+    <script>
+        // Initialize FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

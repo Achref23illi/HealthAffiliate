@@ -1,40 +1,847 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmileDirectClub</title>
+    <title>SmileDirectClub - Aligneurs dentaires invisibles | HealthCompare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../../css/style.css">
+    
+    <meta name="description" content="Découvrez SmileDirectClub - Aligneurs dentaires transparents à prix abordable avec suivi à distance par des dentistes certifiés. Obtenez un sourire parfait sans les contraintes des appareils dentaires traditionnels.">
+    
+    <!-- Custom page styles -->
+    <style>
+        .service-hero {
+            background: linear-gradient(135deg, #5558DC, #45B7F5);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../images/hero-pattern.svg');
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .service-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .service-logo img {
+            width: 120px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            background: white;
+            padding: 10px;
+        }
+        
+        .service-details {
+            padding: 60px 0;
+        }
+        
+        .benefits-section {
+            background-color: var(--light-background);
+            padding: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow-card);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #E7F5FF;
+            color: #5558DC;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .how-it-works {
+            padding: 60px 0;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #5558DC;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .comparison-section {
+            background-color: var(--light-background);
+            padding: 60px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .comparison-table th {
+            background: #5558DC;
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: rgba(85, 88, 220, 0.05);
+        }
+        
+        .testimonials-section {
+            padding: 60px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: #E7F5FF;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-rating {
+            color: #F59E0B;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .before-after-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .before-after-images {
+            display: flex;
+            position: relative;
+        }
+        
+        .before-image, .after-image {
+            width: 50%;
+            transition: width 0.3s ease;
+            position: relative;
+        }
+        
+        .before-image img, .after-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .before-image::after, .after-image::after {
+            position: absolute;
+            top: 10px;
+            padding: 5px 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 0.8rem;
+            border-radius: 3px;
+        }
+        
+        .before-image::after {
+            content: 'AVANT';
+            left: 10px;
+        }
+        
+        .after-image::after {
+            content: 'APRÈS';
+            right: 10px;
+        }
+        
+        .faq-section {
+            background-color: var(--light-background);
+            padding: 60px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #5558DC;
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .pricing-table th {
+            background: #5558DC;
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+        
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background-color: rgba(85, 88, 220, 0.05);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #5558DC, #45B7F5);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .service-logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-logo img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-    <div class="container">
-        <div class="logo">
-            <h1>HealthCompare</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="../../index.html">Accueil</a></li>
-                <li><a href="../comparators/index.html">Comparateurs produits</a></li>
-                <li><a href="../blog/index.html">Blog santé</a></li>
-                <li><a href="../services/index.html">Services</a></li>
-                <li><a href="../about/index.html">À propos</a></li>
-                <li><a href="../legal/index.html">Mentions légales</a></li>
-                <li><a href="../contact/index.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-    <section class="service-affiliate">
         <div class="container">
-            <h1>SmileDirectClub</h1>
-            <img src="../../images/smiledirectclub-placeholder.jpg" alt="SmileDirectClub">
-            <p>Aligneurs dentaires invisibles à prix abordable avec suivi à distance.</p>
-            <a href="#" class="btn btn-primary" rel="sponsored">Visiter le site affilié</a>
+            <div class="logo">
+                <h1>HealthCompare</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Accueil</a></li>
+                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
+                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../services/index.html">Services</a></li>
+                    <li><a href="../about/index.html">À propos</a></li>
+                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-logo">
+                <img src="../../images/smiledirectclub-placeholder.jpg" alt="Logo SmileDirectClub">
+                <h1>SmileDirectClub</h1>
+            </div>
+            <p class="animate-slide-up">Aligneurs dentaires invisibles à prix abordable avec suivi à distance</p>
+            <div class="cta-buttons animate-slide-up delay-200">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter le site officiel</a>
+                <a href="#service-details" class="btn btn-outline">En savoir plus</a>
+            </div>
         </div>
     </section>
+
+    <section id="service-details" class="service-details">
+        <div class="container">
+            <h2 class="text-center">Redressez vos dents sans les contraintes des bagues traditionnelles</h2>
+            <p class="section-intro">SmileDirectClub propose des aligneurs dentaires transparents et amovibles conçus sur mesure pour corriger progressivement vos dents. Avec un suivi à distance par des dentistes et orthodontistes certifiés, vous pouvez obtenir un sourire parfait à un prix jusqu'à 60% moins cher que les méthodes traditionnelles.</p>
+            
+            <div class="before-after">
+                <div class="before-after-item">
+                    <div class="before-after-images">
+                        <div class="before-image">
+                            <img src="../../images/smile-before1-placeholder.jpg" alt="Avant traitement">
+                        </div>
+                        <div class="after-image">
+                            <img src="../../images/smile-after1-placeholder.jpg" alt="Après traitement">
+                        </div>
+                    </div>
+                    <div class="text-center py-3">
+                        <strong>Marie, 28 ans</strong> - Traitement de 6 mois
+                    </div>
+                </div>
+                
+                <div class="before-after-item">
+                    <div class="before-after-images">
+                        <div class="before-image">
+                            <img src="../../images/smile-before2-placeholder.jpg" alt="Avant traitement">
+                        </div>
+                        <div class="after-image">
+                            <img src="../../images/smile-after2-placeholder.jpg" alt="Après traitement">
+                        </div>
+                    </div>
+                    <div class="text-center py-3">
+                        <strong>Thomas, 35 ans</strong> - Traitement de 5 mois
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-5 text-center">
+                <a href="#pricing" class="btn btn-primary">Voir les tarifs</a>
+                <a href="#how-it-works" class="btn btn-outline ml-3">Comment ça marche</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="text-center">Avantages de SmileDirectClub</h2>
+            <p class="section-intro">Découvrez pourquoi des milliers de personnes choisissent SmileDirectClub pour transformer leur sourire.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll" data-animation="fade-in">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    </div>
+                    <h3>Pratiquement invisibles</h3>
+                    <p>Les aligneurs sont transparents et discrets, ce qui les rend quasi invisibles lors du port quotidien.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll" data-animation="fade-in" data-delay="0.1">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Économique</h3>
+                    <p>Jusqu'à 60% moins cher que les méthodes traditionnelles d'orthodontie, avec des options de paiement flexibles.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll" data-animation="fade-in" data-delay="0.2">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h3>Suivi professionnel</h3>
+                    <p>Supervision par des dentistes et orthodontistes certifiés tout au long de votre traitement.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll" data-animation="fade-in" data-delay="0.3">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h3>Rapide et pratique</h3>
+                    <p>Traitement en 4-6 mois en moyenne, sans visites régulières chez l'orthodontiste.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll" data-animation="fade-in" data-delay="0.4">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Amovibles</h3>
+                    <p>Retirez-les facilement pour manger, boire ou lors d'occasions spéciales (recommandé 20-22h de port par jour).</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll" data-animation="fade-in" data-delay="0.5">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                    </div>
+                    <h3>Garantie à vie</h3>
+                    <p>SmileDirectClub offre une garantie à vie pour maintenir votre sourire parfait même des années après le traitement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="text-center">Comment fonctionne SmileDirectClub</h2>
+            <p class="section-intro">Un processus simple et pratique pour obtenir le sourire que vous méritez.</p>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Évaluation initiale gratuite</h3>
+                    <p>Commencez par un scan 3D gratuit dans un SmileShop ou commandez un kit d'empreintes à domicile pour créer un modèle 3D de vos dents.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Plan de traitement personnalisé</h3>
+                    <p>Un dentiste ou orthodontiste certifié crée votre plan de traitement personnalisé avec une prévisualisation 3D de votre futur sourire.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Réception de vos aligneurs</h3>
+                    <p>Tous vos aligneurs personnalisés sont livrés en une seule fois à votre domicile, avec des instructions détaillées et tout le nécessaire pour votre traitement.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Suivi à distance</h3>
+                    <p>Changez vos aligneurs toutes les 1-2 semaines selon votre plan et bénéficiez d'un suivi à distance avec votre dentiste via l'application mobile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing" class="comparison-section">
+        <div class="container">
+            <h2 class="text-center">Options de paiement</h2>
+            <p class="section-intro">SmileDirectClub propose plusieurs options pour s'adapter à votre budget.</p>
+            
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Plan de paiement</th>
+                        <th>Prix</th>
+                        <th>Détails</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paiement unique</td>
+                        <td>1895€</td>
+                        <td>Économisez en payant la totalité du traitement en une seule fois</td>
+                    </tr>
+                    <tr>
+                        <td>Paiement mensuel</td>
+                        <td>85€ / mois</td>
+                        <td>Acompte de 250€ puis 24 mensualités</td>
+                    </tr>
+                    <tr>
+                        <td>Assurance / Mutuelle</td>
+                        <td>Varie selon la couverture</td>
+                        <td>Certaines mutuelles couvrent une partie du traitement (jusqu'à 500€)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="mt-3 text-center"><small>* Les prix indiqués sont approximatifs et peuvent varier. Veuillez consulter le site officiel de SmileDirectClub pour les tarifs actuels.</small></p>
+            
+            <h3 class="text-center mt-5">Comparaison avec les méthodes traditionnelles</h3>
+            
+            <table class="comparison-table mt-4">
+                <thead>
+                    <tr>
+                        <th>Caractéristique</th>
+                        <th>SmileDirectClub</th>
+                        <th>Autres aligneurs invisibles</th>
+                        <th>Appareils dentaires traditionnels</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Prix moyen</td>
+                        <td>1895€</td>
+                        <td>3500€ - 6000€</td>
+                        <td>2000€ - 8000€</td>
+                    </tr>
+                    <tr>
+                        <td>Durée moyenne du traitement</td>
+                        <td>4-6 mois</td>
+                        <td>12-18 mois</td>
+                        <td>18-24 mois</td>
+                    </tr>
+                    <tr>
+                        <td>Visites chez le dentiste</td>
+                        <td>0 (suivi à distance)</td>
+                        <td>Tous les 4-6 semaines</td>
+                        <td>Tous les 4 semaines</td>
+                    </tr>
+                    <tr>
+                        <td>Apparence</td>
+                        <td>Transparent</td>
+                        <td>Transparent</td>
+                        <td>Visible (métal ou céramique)</td>
+                    </tr>
+                    <tr>
+                        <td>Amovible</td>
+                        <td>Oui</td>
+                        <td>Oui</td>
+                        <td>Non</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="text-center">Ce que disent nos clients</h2>
+            <p class="section-intro">Découvrez les témoignages de personnes qui ont transformé leur sourire avec SmileDirectClub.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"J'ai longtemps hésité à cause du prix des appareils dentaires traditionnels. SmileDirectClub m'a permis d'avoir le sourire que j'ai toujours voulu à un prix abordable. Le processus était simple et le résultat est exactement ce que j'espérais !"</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial1-placeholder.jpg" alt="Sophie M.">
+                        <div>
+                            <strong>Sophie M.</strong>
+                            <div>31 ans, Traitement de 5 mois</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p>"J'appréhendais le regard des autres au travail avec des bagues traditionnelles. Les aligneurs SmileDirectClub étaient si discrets que personne ne les a remarqués ! Et le suivi à distance m'a fait gagner tellement de temps."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial2-placeholder.jpg" alt="Thomas L.">
+                        <div>
+                            <strong>Thomas L.</strong>
+                            <div>42 ans, Traitement de 6 mois</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★☆</div>
+                    <p>"Le processus était vraiment pratique, surtout avec l'application mobile qui me rappelait quand changer d'aligneurs. J'ai eu quelques questions au début, mais le service client a toujours été réactif et serviable."</p>
+                    <div class="testimonial-author">
+                        <img src="../../images/testimonial3-placeholder.jpg" alt="Camille D.">
+                        <div>
+                            <strong>Camille D.</strong>
+                            <div>26 ans, Traitement de 4 mois</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center">Questions fréquentes</h2>
+            <p class="section-intro">Trouvez les réponses aux questions les plus courantes concernant SmileDirectClub.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">SmileDirectClub convient-il à tous les cas ?</div>
+                    <div class="faq-answer">
+                        <p>SmileDirectClub est idéal pour les cas légers à modérés de désalignement dentaire, comme les espaces entre les dents, les dents trop serrées ou qui se chevauchent légèrement. Cependant, il n'est pas recommandé pour les cas orthodontiques complexes nécessitant des extractions, une chirurgie, ou des mouvements dentaires importants. Une évaluation initiale vous dira si vous êtes un bon candidat.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Le traitement est-il douloureux ?</div>
+                    <div class="faq-answer">
+                        <p>Comme avec tout traitement orthodontique, vous pourriez ressentir une légère gêne ou pression pendant les premiers jours de chaque nouvel aligneur, ce qui est normal car vos dents se déplacent. Cette sensation est généralement décrite comme une pression plutôt qu'une douleur et diminue après quelques jours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Combien de temps dois-je porter les aligneurs chaque jour ?</div>
+                    <div class="faq-answer">
+                        <p>Pour des résultats optimaux, il est recommandé de porter vos aligneurs 20 à 22 heures par jour. Vous ne devez les retirer que pour manger, boire (sauf de l'eau), et pour votre hygiène bucco-dentaire quotidienne.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Comment se déroule le suivi à distance ?</div>
+                    <div class="faq-answer">
+                        <p>Le suivi se fait principalement via l'application mobile SmileDirectClub. Vous prenez des photos de votre progression selon un calendrier établi et les téléchargez dans l'application. Un dentiste ou orthodontiste examine ces photos et vous fournit des commentaires. Vous pouvez également contacter l'équipe de soins dentaires 24h/24 et 7j/7 par téléphone, chat ou vidéo si vous avez des questions ou préoccupations.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Que se passe-t-il à la fin du traitement ?</div>
+                    <div class="faq-answer">
+                        <p>À la fin de votre traitement, vous recevrez un appareil de contention à porter pendant la nuit pour maintenir vos résultats. Le premier set de contentions est inclus dans le prix de votre traitement. SmileDirectClub offre également une garantie de sourire à vie, ce qui signifie que si vos dents se déplacent à nouveau à l'avenir, vous pouvez être admissible à des aligneurs supplémentaires sans frais (sous certaines conditions).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Le traitement est-il couvert par l'assurance ou la mutuelle ?</div>
+                    <div class="faq-answer">
+                        <p>Certaines mutuelles remboursent partiellement le traitement SmileDirectClub, généralement jusqu'à 500€ selon votre contrat. SmileDirectClub peut vous fournir les documents nécessaires pour votre demande de remboursement, mais il est recommandé de vérifier directement avec votre assurance avant de commencer le traitement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à transformer votre sourire ?</h2>
+            <p>Commencez dès aujourd'hui avec une évaluation gratuite et découvrez si SmileDirectClub est fait pour vous.</p>
+            <div class="cta-buttons mt-4">
+                <a href="#" class="btn btn-white" rel="sponsored">Visiter SmileDirectClub</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <!-- ...existing code for footer... -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>HealthCompare</h2>
+                    <p>Votre guide pour des choix de santé éclairés</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../services/index.html">Services</a></li>
+                        <li><a href="../about/index.html">À propos</a></li>
+                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services affiliés</h3>
+                    <ul>
+                        <li><a href="teladoc.html" rel="sponsored">Teladoc Health</a></li>
+                        <li><a href="sesamecare.html" rel="sponsored">Sesame Care</a></li>
+                        <li><a href="everlywell.html" rel="sponsored">Everlywell</a></li>
+                        <li><a href="letsgetchecked.html" rel="sponsored">LetsGetChecked</a></li>
+                        <li><a href="hims-hers.html" rel="sponsored">Hims / Hers</a></li>
+                        <li><a href="smiledirectclub.html" rel="sponsored">SmileDirectClub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: info@healthcompare.com</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <span class="visually-hidden">Facebook</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <span class="visually-hidden">Twitter</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <span class="visually-hidden">Instagram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="affiliate-disclosure" role="note">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/affiliate-tracking.js"></script>
+    <script src="../../js/analytics.js"></script>
+    <script>
+        // Initialize FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Before-After hover effect
+            const beforeAfterItems = document.querySelectorAll('.before-after-item');
+            
+            beforeAfterItems.forEach(item => {
+                const beforeImage = item.querySelector('.before-image');
+                const afterImage = item.querySelector('.after-image');
+                
+                item.addEventListener('mouseenter', () => {
+                    beforeImage.style.width = '30%';
+                    afterImage.style.width = '70%';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    beforeImage.style.width = '50%';
+                    afterImage.style.width = '50%';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
