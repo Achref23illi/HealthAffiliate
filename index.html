@@ -26,6 +26,17 @@
     <script src="js/testimonial-manager.js" defer></script>
 </head>
 <body>
+    <!-- Promotion Popup -->
+    <div id="promotion-popup" class="popup-overlay">
+        <div class="popup-container">
+            <button id="close-popup" class="popup-close" aria-label="Close popup">×</button>
+            <h3>Save on Prescriptions!</h3>
+            <p>Get our free prescription discount card and save up to 80% on medications at over 70,000 US pharmacies.</p>
+            <img src="images/prescription-discount-card.webp" alt="Prescription Discount Card" class="popup-image">
+            <a href="#prescription-discount-card" class="btn btn-primary popup-cta" id="popup-cta">Get Your Free Card</a>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
@@ -34,12 +45,13 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/comparators/index.html">Product Comparators</a></li>
-                    <li><a href="pages/blog/index.html">Health Blog</a></li>
+                    <li><a href="pages/comparators/index.html">Comparators</a></li>
+                    <li><a href="pages/blog/index.html">Blog</a></li>
                     <li><a href="pages/services/index.html">Services</a></li>
                     <li><a href="pages/about/index.html">About</a></li>
-                    <li><a href="pages/legal/index.html">Legal Notice</a></li>
+                    <li><a href="pages/legal/index.html">Legal</a></li>
                     <li><a href="pages/contact/index.html">Contact</a></li>
+                    <li><a href="#prescription-discount-card">Prescription Discount Card</a></li>
                 </ul>
             </nav>
             <button class="nav-toggle" aria-label="Toggle navigation">
@@ -48,9 +60,7 @@
                 <span></span>
             </button>
         </div>
-        
     </header>
-
     <section class="hero animate-on-scroll" data-animation="fade-in">
         <div class="floating-shapes">
             <div class="shape shape-1"></div>
@@ -67,7 +77,6 @@
             </div>
         </div>
     </section>
-
     <section class="featured-comparisons animate-on-scroll" data-animation="slide-up">
         <div class="container">
             <h2 class="text-gradient">Popular Comparators</h2>
@@ -108,6 +117,70 @@
                         <p>Discover the best electric toothbrushes for optimal hygiene</p>
                         <div class="card-footer">
                             <a href="pages/comparators/toothbrushes.html" class="btn btn-small btn-primary">Compare</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-now animate-on-scroll" data-animation="fade-in">
+        <div class="container">
+            <h2 class="text-gradient">Most Popular Right Now</h2>
+            <div class="section-intro">
+                <p>Trending health products and services that our users are searching for the most this month.</p>
+            </div>
+            <div class="popular-grid">
+                <div class="popular-card" data-animation="fade-in" data-delay="0.1">
+                    <div class="card-img-container">
+                        <img src="images/ozempic-placeholder.jpeg" alt="Ozempic" loading="lazy">
+                        <span class="trending-badge">Trending</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Ozempic</h3>
+                        <p>Popular medication for diabetes management and weight loss</p>
+                        <div class="tags">
+                            <span class="badge badge-primary">Weight Loss</span>
+                            <span class="badge badge-secondary">Diabetes</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="pages/blog/ozempic-guide.html" class="btn btn-small btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="popular-card" data-animation="fade-in" data-delay="0.2">
+                    <div class="card-img-container">
+                        <img src="images/aligners-placeholder.jpg" alt="Dental Aligners" loading="lazy">
+                        <span class="trending-badge">Popular</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Dental Aligners</h3>
+                        <p>Transform your smile with convenient at-home clear aligners</p>
+                        <div class="tags">
+                            <span class="badge badge-primary">Dental</span>
+                            <span class="badge badge-secondary">Cosmetic</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="pages/comparators/aligners.html" class="btn btn-small btn-primary">Compare Options</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="popular-card" data-animation="fade-in" data-delay="0.3">
+                    <div class="card-img-container">
+                        <img src="images/health-tests-placeholder.jpg" alt="Home Health Tests" loading="lazy">
+                        <span class="trending-badge">In Demand</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Home Health Tests</h3>
+                        <p>Convenient lab testing from the comfort of your own home</p>
+                        <div class="tags">
+                            <span class="badge badge-primary">Testing</span>
+                            <span class="badge badge-secondary">At Home</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="pages/comparators/health-tests.html" class="btn btn-small btn-primary">Find Tests</a>
                         </div>
                     </div>
                 </div>
@@ -174,7 +247,20 @@
             </div>
         </div>
     </section>
-
+    <section id="prescription-discount-card" class="section-light animate-on-scroll" data-animation="fade-in">
+        <div class="container">
+            <h2>Save on Your Prescriptions</h2>
+            <div class="section-intro">
+                <p>Get instant discounts on prescription medications with our free savings card – no insurance required. Valid in over 70,000 US pharmacies. Can also be used for certain pet medications.</p>
+            </div>
+            <div class="discount-card-content">
+                <img src="images/prescription-discount-card.webp" alt="Prescription Discount Card" class="discount-card-image">
+                <div class="cta-buttons">
+                    <a href="https://www.goodrx.com/pets" class="btn btn-primary" target="_blank" rel="sponsored noopener">Download Your Discount Card</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="testimonials section-light animate-on-scroll" data-animation="fade-in">
         <div class="container">
             <h2>What Our Users Say</h2>
@@ -217,7 +303,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -277,6 +362,7 @@
     <!-- Main JavaScript - Load only once! -->
     <script src="js/main.js"></script>
     <script src="/js/mobile-menu.js"></script>
+    <script src="js/popup-manager.js"></script>
     
     <!-- Optional analytics scripts -->
     <script src="js/analytics.js"></script>
