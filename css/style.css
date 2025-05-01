@@ -1292,6 +1292,75 @@ footer {
     animation: slideRight 0.8s ease-out forwards;
 }
 
+/* Savings Banner Styles */
+.savings-banner {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.savings-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    100% {
+        left: 100%;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.savings-highlight-banner {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 40px;
+}
+
+.savings-highlight-banner h2 {
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.savings-highlight-banner p {
+    color: white;
+    opacity: 0.9;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
 /* ======== RESPONSIVE DESIGN ======== */
 @media (max-width: 1024px) {
     .hero h2 { font-size: 2.2rem; }
