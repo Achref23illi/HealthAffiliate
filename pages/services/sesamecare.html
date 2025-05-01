@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesame Care - Soins médicaux abordables | HealthCompare</title>
+    <title>Sesame Care - Affordable Medical Appointments | HealthCompare</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
@@ -19,7 +19,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../../css/style.css">
     
-    <meta name="description" content="Découvrez Sesame Care - Plateforme de soins médicaux abordables sans assurance. Consultez des médecins qualifiés à des prix transparents et jusqu'à 60% moins chers que la moyenne.">
+    <meta name="description" content="Explore Sesame Care's affordable medical appointments for in-person and virtual consultations. No insurance required.">
     
     <!-- Custom page styles -->
     <style>
@@ -208,206 +208,6 @@
             height: 30px;
         }
         
-        .pricing-section {
-            background-color: var(--light-background);
-            padding: 60px 0;
-        }
-        
-        .pricing-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 40px 0;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .pricing-table th {
-            background: #7952B3;
-            color: white;
-            text-align: left;
-            padding: 15px;
-        }
-        
-        .pricing-table td {
-            padding: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .pricing-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .pricing-table tr:nth-child(even) {
-            background-color: rgba(121, 82, 179, 0.05);
-        }
-        
-        .pricing-badge {
-            display: inline-block;
-            background-color: rgba(121, 82, 179, 0.1);
-            color: #7952B3;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 20px;
-            margin-left: 10px;
-        }
-        
-        .comparison-section {
-            padding: 60px 0;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 40px 0;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .comparison-table th {
-            background: #7952B3;
-            color: white;
-            text-align: left;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .comparison-table th:first-child {
-            text-align: left;
-        }
-        
-        .comparison-table td {
-            padding: 15px;
-            border-bottom: 1px solid var(--border-color);
-            text-align: center;
-        }
-        
-        .comparison-table td:first-child {
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background-color: rgba(121, 82, 179, 0.05);
-        }
-        
-        .check-mark {
-            color: #10B981;
-            font-size: 1.2rem;
-        }
-        
-        .x-mark {
-            color: #EF4444;
-            font-size: 1.2rem;
-        }
-        
-        .testimonials-section {
-            background-color: var(--light-background);
-            padding: 60px 0;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            font-size: 3rem;
-            color: rgba(121, 82, 179, 0.1);
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-        
-        .testimonial-rating {
-            color: #F59E0B;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-        
-        .faq-section {
-            padding: 60px 0;
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 40px auto 0;
-        }
-        
-        .faq-item {
-            background: white;
-            border-radius: var(--border-radius);
-            margin-bottom: 15px;
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: #7952B3;
-        }
-        
-        .faq-item.active .faq-question::after {
-            content: '-';
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
-            max-height: 1000px;
-        }
-        
         .cta-section {
             background: linear-gradient(135deg, #7952B3, #4B3190);
             color: white;
@@ -429,10 +229,6 @@
                 margin-right: 0;
                 margin-bottom: 20px;
             }
-            
-            .pricing-table, .comparison-table {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -444,12 +240,12 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="../../index.html">Accueil</a></li>
-                    <li><a href="../comparators/index.html">Comparateurs produits</a></li>
-                    <li><a href="../blog/index.html">Blog santé</a></li>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../comparators/index.html">Product Comparators</a></li>
+                    <li><a href="../blog/index.html">Health Blog</a></li>
                     <li><a href="../services/index.html">Services</a></li>
-                    <li><a href="../about/index.html">À propos</a></li>
-                    <li><a href="../legal/index.html">Mentions légales</a></li>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../legal/index.html">Legal Notice</a></li>
                     <li><a href="../contact/index.html">Contact</a></li>
                 </ul>
             </nav>
@@ -464,86 +260,86 @@
     <section class="service-hero">
         <div class="container">
             <div class="service-logo">
-                <img src="../../images/sesamecare-placeholder.png" alt="Logo Sesame Care">
+                <img src="../../images/sesamecare-placeholder.png" alt="Sesame Care Logo">
                 <h1>Sesame Care</h1>
             </div>
-            <p class="animate-slide-up">Accès à des soins médicaux abordables sans assurance</p>
+            <p class="animate-slide-up">Affordable medical appointments with no insurance required</p>
             <div class="cta-buttons animate-slide-up delay-200">
-                <a href="#" class="btn btn-white" rel="sponsored">Visiter le site officiel</a>
-                <a href="#service-details" class="btn btn-outline">En savoir plus</a>
+                <a href="#" class="btn btn-white" rel="sponsored">Visit Official Website</a>
+                <a href="#service-details" class="btn btn-outline">Learn More</a>
             </div>
         </div>
     </section>
 
     <section id="service-details" class="service-details">
         <div class="container">
-            <h2 class="text-center">Des soins de qualité à prix abordables</h2>
-            <p class="section-intro">Sesame Care révolutionne l'accès aux soins de santé en proposant des consultations médicales à prix réduits, sans abonnement ni assurance nécessaire. Que vous ayez besoin de voir un médecin généraliste, un spécialiste ou un professionnel de la santé mentale, Sesame Care vous connecte avec des prestataires qualifiés à des tarifs jusqu'à 60% inférieurs à la moyenne du marché.</p>
+            <h2 class="text-center">Accessible Healthcare for Everyone</h2>
+            <p class="section-intro">Sesame Care revolutionizes access to healthcare by offering affordable medical appointments without the need for insurance. Whether you need to see a primary care physician, a specialist, or a mental health professional, Sesame Care connects you with qualified providers at prices up to 60% lower than the market average.</p>
             
             <div class="service-categories">
                 <div class="service-card animate-on-scroll" data-animation="fade-in">
                     <div class="service-img">
-                        <img src="../../images/sesame-telehealth-placeholder.jpg" alt="Téléconsultations">
+                        <img src="../../images/sesame-telehealth-placeholder.jpg" alt="Telehealth">
                     </div>
                     <div class="service-content">
-                        <h3>Téléconsultations</h3>
-                        <p>Consultez un médecin par vidéo depuis le confort de votre domicile pour des problèmes courants, des renouvellements d'ordonnance ou des avis médicaux.</p>
-                        <div class="service-price">À partir de 30€</div>
+                        <h3>Telehealth</h3>
+                        <p>Consult with a doctor via video from the comfort of your home for common issues, prescription renewals, or medical advice.</p>
+                        <div class="service-price">Starting at $30</div>
                     </div>
                 </div>
                 
                 <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.1">
                     <div class="service-img">
-                        <img src="../../images/sesame-inperson-placeholder.jpg" alt="Consultations en cabinet">
+                        <img src="../../images/sesame-inperson-placeholder.jpg" alt="In-Person Appointments">
                     </div>
                     <div class="service-content">
-                        <h3>Consultations en cabinet</h3>
-                        <p>Prenez rendez-vous avec des médecins près de chez vous pour des examens physiques, des soins préventifs ou des problèmes nécessitant une visite en personne.</p>
-                        <div class="service-price">À partir de 45€</div>
+                        <h3>In-Person Appointments</h3>
+                        <p>Schedule visits with doctors near you for physical exams, preventive care, or issues requiring an in-person visit.</p>
+                        <div class="service-price">Starting at $45</div>
                     </div>
                 </div>
                 
                 <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.2">
                     <div class="service-img">
-                        <img src="../../images/sesame-mentalhealth-placeholder.jpg" alt="Santé mentale">
+                        <img src="../../images/sesame-mentalhealth-placeholder.jpg" alt="Mental Health">
                     </div>
                     <div class="service-content">
-                        <h3>Santé mentale</h3>
-                        <p>Accédez à des psychologues, thérapeutes et psychiatres pour la gestion du stress, de l'anxiété, de la dépression et d'autres préoccupations de santé mentale.</p>
-                        <div class="service-price">À partir de 50€</div>
+                        <h3>Mental Health</h3>
+                        <p>Access psychologists, therapists, and psychiatrists for stress, anxiety, depression, and other mental health concerns.</p>
+                        <div class="service-price">Starting at $50</div>
                     </div>
                 </div>
                 
                 <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.3">
                     <div class="service-img">
-                        <img src="../../images/sesame-specialist-placeholder.jpg" alt="Spécialistes médicaux">
+                        <img src="../../images/sesame-specialist-placeholder.jpg" alt="Specialist Care">
                     </div>
                     <div class="service-content">
-                        <h3>Consultations spécialistes</h3>
-                        <p>Consultez des dermatologues, cardiologues, ORL et autres spécialistes sans les longues attentes habituelles et à des prix transparents.</p>
-                        <div class="service-price">À partir de 70€</div>
+                        <h3>Specialist Consultations</h3>
+                        <p>Consult dermatologists, cardiologists, ENT specialists, and other experts without the usual long waits and at transparent prices.</p>
+                        <div class="service-price">Starting at $70</div>
                     </div>
                 </div>
                 
                 <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.4">
                     <div class="service-img">
-                        <img src="../../images/sesame-labs-placeholder.jpg" alt="Analyses médicales">
+                        <img src="../../images/sesame-labs-placeholder.jpg" alt="Medical Tests">
                     </div>
                     <div class="service-content">
-                        <h3>Analyses médicales</h3>
-                        <p>Obtenez des tests sanguins, d'imagerie et d'autres analyses médicales à des prix réduits, avec ou sans ordonnance selon le type d'examen.</p>
-                        <div class="service-price">À partir de 25€</div>
+                        <h3>Medical Tests</h3>
+                        <p>Get blood tests, imaging, and other medical analyses at reduced prices, with or without a prescription depending on the type of test.</p>
+                        <div class="service-price">Starting at $25</div>
                     </div>
                 </div>
                 
                 <div class="service-card animate-on-scroll" data-animation="fade-in" data-delay="0.5">
                     <div class="service-img">
-                        <img src="../../images/sesame-prescription-placeholder.jpg" alt="Médicaments">
+                        <img src="../../images/sesame-prescription-placeholder.jpg" alt="Medications">
                     </div>
                     <div class="service-content">
-                        <h3>Médicaments à prix réduits</h3>
-                        <p>Accédez à des médicaments courants à des tarifs préférentiels grâce aux partenariats avec des pharmacies locales et des services de livraison.</p>
-                        <div class="service-price">Économies jusqu'à 80%</div>
+                        <h3>Discounted Medications</h3>
+                        <p>Access common medications at preferential rates through partnerships with local pharmacies and delivery services.</p>
+                        <div class="service-price">Savings up to 80%</div>
                     </div>
                 </div>
             </div>
@@ -552,32 +348,32 @@
     
     <section class="how-it-works">
         <div class="container">
-            <h2 class="text-center">Comment ça fonctionne</h2>
-            <p class="section-intro">Sesame Care simplifie l'accès aux soins médicaux avec un processus en quelques étapes simples.</p>
+            <h2 class="text-center">How It Works</h2>
+            <p class="section-intro">Sesame Care simplifies access to medical care with a straightforward process.</p>
             
             <div class="steps-container">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h3>Recherchez un service</h3>
-                    <p>Parcourez les différents types de soins disponibles, filtrez par spécialité, localisation ou disponibilité, et comparez les prix clairement affichés.</p>
+                    <h3>Search for a Service</h3>
+                    <p>Browse the available types of care, filter by specialty, location, or availability, and compare clearly displayed prices.</p>
                 </div>
                 
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h3>Réservez directement</h3>
-                    <p>Choisissez un créneau qui vous convient et réservez instantanément, sans intermédiaire ni attente pour une approbation d'assurance.</p>
+                    <h3>Book Directly</h3>
+                    <p>Choose a time slot that works for you and book instantly, without intermediaries or waiting for insurance approval.</p>
                 </div>
                 
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h3>Payez un prix transparent</h3>
-                    <p>Réglez directement le montant affiché, sans surprise ni frais cachés. Aucune assurance n'est nécessaire.</p>
+                    <h3>Pay a Transparent Price</h3>
+                    <p>Pay the displayed amount directly, with no surprises or hidden fees. No insurance is required.</p>
                 </div>
                 
                 <div class="step-card">
                     <div class="step-number">4</div>
-                    <h3>Recevez vos soins</h3>
-                    <p>Consultez en vidéo ou en personne, obtenez des ordonnances si nécessaire, et accédez à votre dossier médical en ligne.</p>
+                    <h3>Receive Your Care</h3>
+                    <p>Consult via video or in person, get prescriptions if needed, and access your medical records online.</p>
                 </div>
             </div>
         </div>
@@ -585,278 +381,56 @@
     
     <section class="benefits-section">
         <div class="container">
-            <h2 class="text-center">Pourquoi choisir Sesame Care ?</h2>
-            <p class="section-intro">Découvrez les avantages qui font de Sesame Care une option de choix pour vos besoins médicaux.</p>
+            <h2 class="text-center">Why Choose Sesame Care?</h2>
+            <p class="section-intro">Discover the benefits that make Sesame Care a top choice for your medical needs.</p>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
                     </div>
-                    <h3>Économies significatives</h3>
-                    <p>Des prix jusqu'à 60% inférieurs aux tarifs habituels pour les consultations médicales, les analyses et les médicaments.</p>
+                    <h3>Significant Savings</h3>
+                    <p>Prices up to 60% lower than usual rates for medical consultations, tests, and medications.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     </div>
-                    <h3>Aucun abonnement</h3>
-                    <p>Contrairement à d'autres services de santé en ligne, Sesame Care ne nécessite aucun abonnement mensuel ou annuel.</p>
+                    <h3>No Subscription</h3>
+                    <p>Unlike other online health services, Sesame Care requires no monthly or annual subscription.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
-                    <h3>Médecins qualifiés</h3>
-                    <p>Tous les professionnels de santé sont certifiés, vérifiés et notés par des patients réels pour vous garantir des soins de qualité.</p>
+                    <h3>Qualified Doctors</h3>
+                    <p>All healthcare professionals are certified, verified, and rated by real patients to ensure quality care.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                     </div>
-                    <h3>Transparence totale</h3>
-                    <p>Tous les prix sont clairement affichés avant la réservation, sans frais cachés ni surprises sur votre facture.</p>
+                    <h3>Total Transparency</h3>
+                    <p>All prices are clearly displayed before booking, with no hidden fees or surprises on your bill.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
                     </div>
-                    <h3>Disponibilité rapide</h3>
-                    <p>Obtenez généralement un rendez-vous dans les 24-48 heures, contrairement aux longues attentes habituelles pour voir un spécialiste.</p>
+                    <h3>Quick Availability</h3>
+                    <p>Typically get an appointment within 24-48 hours, unlike the usual long waits to see a specialist.</p>
                 </div>
                 
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                     </div>
-                    <h3>Confidentialité assurée</h3>
-                    <p>Toutes vos informations médicales sont protégées selon les normes les plus strictes de confidentialité et de sécurité.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="pricing-section">
-        <div class="container">
-            <h2 class="text-center">Tarifs des services populaires</h2>
-            <p class="section-intro">Voici un aperçu des prix des services les plus demandés sur Sesame Care. Tous les prix indiqués sont finaux, sans frais supplémentaires.</p>
-            
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Prix Sesame</th>
-                        <th>Prix moyen du marché</th>
-                        <th>Économie</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Consultation généraliste (en ligne) <span class="pricing-badge">POPULAIRE</span></td>
-                        <td>35€</td>
-                        <td>70-120€</td>
-                        <td>50-70%</td>
-                    </tr>
-                    <tr>
-                        <td>Consultation généraliste (en cabinet)</td>
-                        <td>45€</td>
-                        <td>80-130€</td>
-                        <td>45-65%</td>
-                    </tr>
-                    <tr>
-                        <td>Thérapie / Psychologie <span class="pricing-badge">POPULAIRE</span></td>
-                        <td>50€</td>
-                        <td>90-150€</td>
-                        <td>45-65%</td>
-                    </tr>
-                    <tr>
-                        <td>Psychiatrie</td>
-                        <td>80€</td>
-                        <td>150-250€</td>
-                        <td>45-65%</td>
-                    </tr>
-                    <tr>
-                        <td>Dermatologie</td>
-                        <td>60€</td>
-                        <td>120-200€</td>
-                        <td>50-70%</td>
-                    </tr>
-                    <tr>
-                        <td>Bilan sanguin complet <span class="pricing-badge">POPULAIRE</span></td>
-                        <td>40€</td>
-                        <td>100-250€</td>
-                        <td>60-85%</td>
-                    </tr>
-                    <tr>
-                        <td>Ordonnance pour médicaments chroniques</td>
-                        <td>25€</td>
-                        <td>50-100€</td>
-                        <td>50-75%</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p class="mt-3 text-center"><small>* Les prix indiqués sont approximatifs et peuvent varier. Veuillez consulter le site officiel de Sesame Care pour les tarifs actuels.</small></p>
-        </div>
-    </section>
-    
-    <section class="comparison-section">
-        <div class="container">
-            <h2 class="text-center">Comment Sesame Care se compare</h2>
-            <p class="section-intro">Voici comment Sesame Care se positionne par rapport à d'autres options de soins de santé.</p>
-            
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Caractéristique</th>
-                        <th>Sesame Care</th>
-                        <th>Assurance traditionnelle</th>
-                        <th>Autres services de télémédecine</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Abonnement mensuel</td>
-                        <td><span class="x-mark">✗</span></td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td><span class="check-mark">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td>Prix transparents</td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td><span class="x-mark">✗</span></td>
-                        <td><span class="check-mark">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td>Consultations spécialistes</td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td>Limité</td>
-                    </tr>
-                    <tr>
-                        <td>Frais cachés</td>
-                        <td><span class="x-mark">✗</span></td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td>Varie</td>
-                    </tr>
-                    <tr>
-                        <td>Rendez-vous rapides</td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td><span class="x-mark">✗</span></td>
-                        <td><span class="check-mark">✓</span></td>
-                    </tr>
-                    <tr>
-                        <td>Choix du médecin</td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td>Limité</td>
-                        <td>Limité</td>
-                    </tr>
-                    <tr>
-                        <td>Consultations en personne</td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td><span class="check-mark">✓</span></td>
-                        <td><span class="x-mark">✗</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="text-center">Ce que disent nos utilisateurs</h2>
-            <p class="section-intro">Découvrez comment Sesame Care a aidé d'autres personnes à accéder à des soins de qualité à prix abordables.</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p>"Je n'ai pas d'assurance et j'évitais les consultations médicales à cause des coûts. Avec Sesame Care, j'ai pu voir un dermatologue pour un problème de peau persistant pour seulement 60€, alors que les devis que j'avais reçus ailleurs étaient de 180€ minimum. Service impeccable !"</p>
-                    <div class="testimonial-author">
-                        <img src="../../images/testimonial1-placeholder.jpg" alt="Julien R.">
-                        <div>
-                            <strong>Julien R.</strong>
-                            <span>Utilisateur depuis 2023</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p>"Même avec une assurance, je devais attendre 3 mois pour un rendez-vous avec un psychologue. Sur Sesame Care, j'ai trouvé un thérapeute disponible en 2 jours et à un prix inférieur à mon reste à charge. Je consulte maintenant régulièrement et ça a changé ma vie."</p>
-                    <div class="testimonial-author">
-                        <img src="../../images/testimonial2-placeholder.jpg" alt="Emma L.">
-                        <div>
-                            <strong>Emma L.</strong>
-                            <span>Utilisatrice depuis 2024</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★☆</div>
-                    <p>"J'utilise Sesame Care pour mes analyses sanguines de routine. Le processus est simple : je réserve en ligne, je me rends au laboratoire partenaire et je reçois mes résultats directement dans mon espace patient. J'économise environ 70% par rapport aux prix que je payais avant."</p>
-                    <div class="testimonial-author">
-                        <img src="../../images/testimonial3-placeholder.jpg" alt="Thomas B.">
-                        <div>
-                            <strong>Thomas B.</strong>
-                            <span>Utilisateur depuis 2023</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="text-center">Questions fréquentes</h2>
-            <p class="section-intro">Trouvez les réponses aux questions les plus courantes sur Sesame Care.</p>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">Puis-je utiliser Sesame Care avec mon assurance ?</div>
-                    <div class="faq-answer">
-                        <p>Sesame Care fonctionne indépendamment des assurances, ce qui permet d'offrir des prix plus bas. Si vous avez une assurance, vous pouvez toujours utiliser Sesame Care et souvent économiser par rapport à votre reste à charge. Après votre consultation, vous pouvez demander une facture détaillée à soumettre à votre assurance pour un éventuel remboursement, selon votre contrat.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Comment Sesame Care peut-il proposer des prix si bas ?</div>
-                    <div class="faq-answer">
-                        <p>En travaillant directement avec les médecins et en éliminant les intermédiaires administratifs coûteux, Sesame Care réduit considérablement les frais généraux. Les médecins fixent leurs propres tarifs et économisent sur les coûts de gestion des assurances, ce qui leur permet d'offrir des prix plus bas tout en maintenant ou en augmentant leurs revenus. Ce modèle direct bénéficie à la fois aux patients et aux prestataires de soins.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Quels types de médecins sont disponibles sur Sesame Care ?</div>
-                    <div class="faq-answer">
-                        <p>Sesame Care propose un large éventail de spécialités médicales, notamment des médecins généralistes, dermatologues, psychologues, psychiatres, nutritionnistes, cardiologues, gynécologues, allergologues, et bien d'autres. Tous les médecins sont certifiés, vérifiés et évalués par des patients réels. La disponibilité de certaines spécialités peut varier selon votre région.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Comment se déroule une consultation en ligne ?</div>
-                    <div class="faq-answer">
-                        <p>Après avoir réservé votre consultation, vous recevrez un lien pour rejoindre la session vidéo à l'heure prévue. Vous pouvez utiliser un ordinateur, une tablette ou un smartphone équipé d'une caméra et d'un microphone. La consultation se déroule de façon similaire à une visite en cabinet : le médecin discute de vos symptômes, pose des questions sur votre historique médical et propose un diagnostic et un plan de traitement. Si nécessaire, il peut vous envoyer une ordonnance électronique directement à votre pharmacie préférée.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Puis-je obtenir des ordonnances via Sesame Care ?</div>
-                    <div class="faq-answer">
-                        <p>Oui, les médecins sur Sesame Care peuvent prescrire des médicaments lorsque c'est médicalement nécessaire et approprié. Ces ordonnances peuvent être envoyées électroniquement à votre pharmacie préférée ou, dans certains cas, les médicaments peuvent être livrés directement chez vous. Notez que les médecins ne peuvent pas prescrire de substances contrôlées via la télémédecine dans certaines régions, conformément aux réglementations locales.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Y a-t-il des frais d'annulation ?</div>
-                    <div class="faq-answer">
-                        <p>Sesame Care a une politique d'annulation flexible. En général, vous pouvez annuler ou reprogrammer votre rendez-vous jusqu'à 24 heures avant l'heure prévue sans frais. Les annulations avec moins de 24 heures de préavis peuvent entraîner des frais, généralement environ 50% du coût de la consultation. Les détails exacts de la politique d'annulation sont toujours clairement affichés avant que vous ne finalisiez votre réservation.</p>
-                    </div>
+                    <h3>Privacy Assured</h3>
+                    <p>All your medical information is protected according to the highest standards of confidentiality and security.</p>
                 </div>
             </div>
         </div>
@@ -864,10 +438,10 @@
     
     <section class="cta-section">
         <div class="container">
-            <h2>Prêt à économiser sur vos soins de santé ?</h2>
-            <p>Rejoignez les milliers de personnes qui bénéficient de soins médicaux de qualité à prix abordables avec Sesame Care.</p>
+            <h2>Ready to Save on Healthcare?</h2>
+            <p>Join thousands of people benefiting from quality medical care at affordable prices with Sesame Care.</p>
             <div class="cta-buttons mt-4">
-                <a href="#" class="btn btn-white" rel="sponsored">Visiter Sesame Care</a>
+                <a href="#" class="btn btn-white" rel="sponsored">Visit Sesame Care</a>
             </div>
         </div>
     </section>
@@ -877,22 +451,22 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h2>HealthCompare</h2>
-                    <p>Votre guide pour des choix de santé éclairés</p>
+                    <p>Your guide to informed health choices</p>
                 </div>
                 <div class="footer-links">
                     <h3>Pages</h3>
                     <ul>
-                        <li><a href="../../index.html">Accueil</a></li>
-                        <li><a href="../comparators/index.html">Comparateurs</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../comparators/index.html">Comparators</a></li>
                         <li><a href="../blog/index.html">Blog</a></li>
                         <li><a href="../services/index.html">Services</a></li>
-                        <li><a href="../about/index.html">À propos</a></li>
-                        <li><a href="../legal/index.html">Mentions légales</a></li>
+                        <li><a href="../about/index.html">About</a></li>
+                        <li><a href="../legal/index.html">Legal Notice</a></li>
                         <li><a href="../contact/index.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-services">
-                    <h3>Services affiliés</h3>
+                    <h3>Affiliated Services</h3>
                     <ul>
                         <li><a href="teladoc.html" rel="sponsored">Teladoc Health</a></li>
                         <li><a href="sesamecare.html" rel="sponsored">Sesame Care</a></li>
@@ -922,8 +496,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="affiliate-disclosure" role="note">Ce site contient des liens affiliés. Nous pouvons toucher une commission si vous achetez via ces liens, sans coût supplémentaire pour vous.</p>
-                <p class="copyright">&copy; 2025 HealthCompare. Tous droits réservés.</p>
+                <p class="affiliate-disclosure" role="note">This site contains affiliate links. We may earn a commission if you purchase through these links, at no additional cost to you.</p>
+                <p class="copyright">&copy; 2025 HealthCompare. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -932,7 +506,7 @@
     <script src="../../js/main.js"></script>
     <script src="../../js/affiliate-tracking.js"></script>
     <script src="../../js/analytics.js"></script>
-    <script src="../../js/mobile-menu.js" ></script>
+    <script src="../../js/mobile-menu.js"></script>
     <script>
         // Initialize FAQ toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
